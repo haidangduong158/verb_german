@@ -22117,5 +22117,1965 @@ window.VERB_DB = {
         },
         "part2": "gespart",
         "aux": "haben"
+    },
+    "probieren": {
+        "present": {
+            "ich": "probiere",
+            "du": "probierst",
+            "er": "probiert",
+            "wir": "probieren",
+            "ihr": "probiert",
+            "sie": "probieren"
+        },
+        "praet": {
+            "ich": "probierte",
+            "du": "probiertest",
+            "er": "probierte",
+            "wir": "probierten",
+            "ihr": "probiertet",
+            "sie": "probierten"
+        },
+        "part2": "probiert",
+        "aux": "haben"
+    },
+    "spazieren": {
+        "present": {
+            "ich": "spaziere",
+            "du": "spazierst",
+            "er": "spaziert",
+            "wir": "spazieren",
+            "ihr": "spaziert",
+            "sie": "spazieren"
+        },
+        "praet": {
+            "ich": "spazierte",
+            "du": "spaziertest",
+            "er": "spazierte",
+            "wir": "spazierten",
+            "ihr": "spaziertet",
+            "sie": "spazierten"
+        },
+        "part2": "spaziert",
+        "aux": "sein"
+    },
+    "passieren": {
+        "present": {
+            "ich": "passiere",
+            "du": "passierst",
+            "er": "passiert",
+            "wir": "passieren",
+            "ihr": "passiert",
+            "sie": "passieren"
+        },
+        "praet": {
+            "ich": "passierte",
+            "du": "passiertest",
+            "er": "passierte",
+            "wir": "passierten",
+            "ihr": "passiertet",
+            "sie": "passierten"
+        },
+        "part2": "passiert",
+        "aux": "sein"
+    },
+    "kontaktieren": {
+        "present": {
+            "ich": "kontaktiere",
+            "du": "kontaktierst",
+            "er": "kontaktiert",
+            "wir": "kontaktieren",
+            "ihr": "kontaktiert",
+            "sie": "kontaktieren"
+        },
+        "praet": {
+            "ich": "kontaktierte",
+            "du": "kontaktiertest",
+            "er": "kontaktierte",
+            "wir": "kontaktierten",
+            "ihr": "kontaktiertet",
+            "sie": "kontaktierten"
+        },
+        "part2": "kontaktiert",
+        "aux": "haben"
+    },
+    "reservieren": {
+        "present": {
+            "ich": "reserviere",
+            "du": "reservierst",
+            "er": "reserviert",
+            "wir": "reservieren",
+            "ihr": "reserviert",
+            "sie": "reservieren"
+        },
+        "praet": {
+            "ich": "reservierte",
+            "du": "reserviertest",
+            "er": "reservierte",
+            "wir": "reservierten",
+            "ihr": "reserviertet",
+            "sie": "reservierten"
+        },
+        "part2": "reserviert",
+        "aux": "haben"
+    },
+    "buchstabieren": {
+        "present": {
+            "ich": "buchstabiere",
+            "du": "buchstabierst",
+            "er": "buchstabiert",
+            "wir": "buchstabieren",
+            "ihr": "buchstabiert",
+            "sie": "buchstabieren"
+        },
+        "praet": {
+            "ich": "buchstabierte",
+            "du": "buchstabiertest",
+            "er": "buchstabierte",
+            "wir": "buchstabierten",
+            "ihr": "buchstabiertet",
+            "sie": "buchstabierten"
+        },
+        "part2": "buchstabiert",
+        "aux": "haben"
+    },
+    "reparieren": {
+        "present": {
+            "ich": "repariere",
+            "du": "reparierst",
+            "er": "repariert",
+            "wir": "reparieren",
+            "ihr": "repariert",
+            "sie": "reparieren"
+        },
+        "praet": {
+            "ich": "reparierte",
+            "du": "repariertest",
+            "er": "reparierte",
+            "wir": "repaired",
+            "ihr": "repariertet",
+            "sie": "reparierten"
+        },
+        "part2": "repariert",
+        "aux": "haben"
+    },
+    "servieren": {
+        "present": {
+            "ich": "serviere",
+            "du": "servierst",
+            "er": "serviert",
+            "wir": "servieren",
+            "ihr": "serviert",
+            "sie": "servieren"
+        },
+        "praet": {
+            "ich": "servierte",
+            "du": "serviertest",
+            "er": "servierte",
+            "wir": "servierten",
+            "ihr": "serviertet",
+            "sie": "servierten"
+        },
+        "part2": "serviert",
+        "aux": "haben"
+    },
+    "trainieren": {
+        "present": {
+            "ich": "trainiere",
+            "du": "trainierst",
+            "er": "trainiert",
+            "wir": "trainieren",
+            "ihr": "trainiert",
+            "sie": "trainieren"
+        },
+        "praet": {
+            "ich": "trainierte",
+            "du": "trainiertest",
+            "er": "trainierte",
+            "wir": "trainierten",
+            "ihr": "trainiertet",
+            "sie": "trainierten"
+        },
+        "part2": "trainiert",
+        "aux": "haben"
+    },
+    "funktionieren": {
+        "present": {
+            "ich": "funktioniere",
+            "du": "funktionierst",
+            "er": "funktioniert",
+            "wir": "funktionieren",
+            "ihr": "funktioniert",
+            "sie": "funktionieren"
+        },
+        "praet": {
+            "ich": "funktionierte",
+            "du": "funktioniertest",
+            "er": "funktionierte",
+            "wir": "funktionierten",
+            "ihr": "funktioniertet",
+            "sie": "funktionierten"
+        },
+        "part2": "funktioniert",
+        "aux": "haben"
+    },
+    "organisieren": {
+        "present": {
+            "ich": "organisiere",
+            "du": "organisierst",
+            "er": "organisiert",
+            "wir": "organisieren",
+            "ihr": "organisiert",
+            "sie": "organisieren"
+        },
+        "praet": {
+            "ich": "organisierte",
+            "du": "organisiertest",
+            "er": "organisierte",
+            "wir": "organisierten",
+            "ihr": "organisiertet",
+            "sie": "organisierten"
+        },
+        "part2": "organisiert",
+        "aux": "haben"
+    },
+    "einkaufen": {
+        "present": {
+            "ich": "kaufe ein",
+            "du": "kaufst ein",
+            "er": "kauft ein",
+            "wir": "kaufen ein",
+            "ihr": "kauft ein",
+            "sie": "kaufen ein"
+        },
+        "praet": {
+            "ich": "kaufte ein",
+            "du": "kauftest ein",
+            "er": "kaufte ein",
+            "wir": "kauften ein",
+            "ihr": "kauftet ein",
+            "sie": "kauften ein"
+        },
+        "part2": "eingekauft",
+        "aux": "haben"
+    },
+    "aufräumen": {
+        "present": {
+            "ich": "räume auf",
+            "du": "räumst auf",
+            "er": "räumt auf",
+            "wir": "räumen auf",
+            "ihr": "räumt auf",
+            "sie": "räumen auf"
+        },
+        "praet": {
+            "ich": "räumte auf",
+            "du": "räumtest auf",
+            "er": "räumte auf",
+            "wir": "räumten auf",
+            "ihr": "räumtet auf",
+            "sie": "räumten auf"
+        },
+        "part2": "aufgeräumt",
+        "aux": "haben"
+    },
+    "teilnehmen": {
+        "present": {
+            "ich": "nehme teil",
+            "du": "nimmst teil",
+            "er": "nimmt teil",
+            "wir": "nehmen teil",
+            "ihr": "nehmt teil",
+            "sie": "nehmen teil"
+        },
+        "praet": {
+            "ich": "nahm teil",
+            "du": "nahmst teil",
+            "er": "nahm teil",
+            "wir": "nahmen teil",
+            "ihr": "nahmt teil",
+            "sie": "nahmen teil"
+        },
+        "part2": "teilgenommen",
+        "aux": "haben"
+    },
+    "abwaschen": {
+        "present": {
+            "ich": "wasche ab",
+            "du": "wäschst ab",
+            "er": "wäscht ab",
+            "wir": "waschen ab",
+            "ihr": "wascht ab",
+            "sie": "waschen ab"
+        },
+        "praet": {
+            "ich": "wusch ab",
+            "du": "wuschst ab",
+            "er": "wusch ab",
+            "wir": "wuschen ab",
+            "ihr": "wuscht ab",
+            "sie": "wuschen ab"
+        },
+        "part2": "abgewaschen",
+        "aux": "haben"
+    },
+    "abtrocknen": {
+        "present": {
+            "ich": "trockne ab",
+            "du": "trocknest ab",
+            "er": "trocknet ab",
+            "wir": "trocknen ab",
+            "ihr": "trocknet ab",
+            "sie": "trocknen ab"
+        },
+        "praet": {
+            "ich": "trocknete ab",
+            "du": "trocknetest ab",
+            "er": "trocknete ab",
+            "wir": "trockneten ab",
+            "ihr": "trocknetet ab",
+            "sie": "trocknen ab"
+        },
+        "part2": "abgetrocknet",
+        "aux": "haben"
+    },
+    "staubsaugen": {
+        "present": {
+            "ich": "staubsauge",
+            "du": "staubsaugst",
+            "er": "staubsaugt",
+            "wir": "staubsaugen",
+            "ihr": "staubsaugt",
+            "sie": "staubsaugen"
+        },
+        "praet": {
+            "ich": "staubsaugte",
+            "du": "staubsaugtest",
+            "er": "staubsaugte",
+            "wir": "staubsaugten",
+            "ihr": "staubsaugtet",
+            "sie": "staubsaugten"
+        },
+        "part2": "gestaubsaugt",
+        "aux": "haben"
+    },
+    "lüften": {
+        "present": {
+            "ich": "lüfte",
+            "du": "lüftest",
+            "er": "lüftet",
+            "wir": "lüften",
+            "ihr": "lüftet",
+            "sie": "lüften"
+        },
+        "praet": {
+            "ich": "lüftete",
+            "du": "lüftest",
+            "er": "lüftete",
+            "wir": "lüfteten",
+            "ihr": "lüftetet",
+            "sie": "lüfteten"
+        },
+        "part2": "gelüftet",
+        "aux": "haben"
+    },
+    "hochladen": {
+        "present": {
+            "ich": "lade hoch",
+            "du": "lädst hoch",
+            "er": "lädt hoch",
+            "wir": "laden hoch",
+            "ihr": "ladet hoch",
+            "sie": "laden hoch"
+        },
+        "praet": {
+            "ich": "lud hoch",
+            "du": "ludst hoch",
+            "er": "lud hoch",
+            "wir": "luden hoch",
+            "ihr": "ludet hoch",
+            "sie": "luden hoch"
+        },
+        "part2": "hochgeladen",
+        "aux": "haben"
+    },
+    "herunterladen": {
+        "present": {
+            "ich": "lade herunter",
+            "du": "lädst herunter",
+            "er": "lädt herunter",
+            "wir": "laden herunter",
+            "ihr": "ladet herunter",
+            "sie": "laden herunter"
+        },
+        "praet": {
+            "ich": "lud herunter",
+            "du": "ludst herunter",
+            "er": "lud herunter",
+            "wir": "luden herunter",
+            "ihr": "ludet herunter",
+            "sie": "luden herunter"
+        },
+        "part2": "heruntergeladen",
+        "aux": "haben"
+    },
+    "abheben": {
+        "present": {
+            "ich": "hebe ab",
+            "du": "hebst ab",
+            "er": "hebt ab",
+            "wir": "heben ab",
+            "ihr": "hebt ab",
+            "sie": "heben ab"
+        },
+        "praet": {
+            "ich": "hob ab",
+            "du": "hobst ab",
+            "er": "hob ab",
+            "wir": "hoben ab",
+            "ihr": "hobt ab",
+            "sie": "hoben ab"
+        },
+        "part2": "abgehoben",
+        "aux": "haben"
+    },
+    "kündigen": {
+        "present": {
+            "ich": "kündige",
+            "du": "kündigst",
+            "er": "kündigt",
+            "wir": "kündigen",
+            "ihr": "kündigt",
+            "sie": "kündigen"
+        },
+        "praet": {
+            "ich": "kündigte",
+            "du": "kündigtest",
+            "er": "kündigte",
+            "wir": "kündigten",
+            "ihr": "kündigtet",
+            "sie": "kündigten"
+        },
+        "part2": "gekündigt",
+        "aux": "haben"
+    },
+    "mischen": {
+        "present": {
+            "ich": "mische",
+            "du": "mischst",
+            "er": "mischt",
+            "wir": "mischen",
+            "ihr": "mischt",
+            "sie": "mischen"
+        },
+        "praet": {
+            "ich": "mischte",
+            "du": "mischtest",
+            "er": "mischte",
+            "wir": "mischten",
+            "ihr": "mischtet",
+            "sie": "mischten"
+        },
+        "part2": "gemischt",
+        "aux": "haben"
+    },
+    "rühren": {
+        "present": {
+            "ich": "rühre",
+            "du": "rührst",
+            "er": "rührt",
+            "wir": "rühren",
+            "ihr": "rührt",
+            "sie": "rühren"
+        },
+        "praet": {
+            "ich": "rührte",
+            "du": "rührtest",
+            "er": "rührte",
+            "wir": "rührten",
+            "ihr": "rührtet",
+            "sie": "rührten"
+        },
+        "part2": "gerührt",
+        "aux": "haben"
+    },
+    "gebären": {
+        "present": {
+            "ich": "gebäre",
+            "du": "gebärst",
+            "er": "gebärt",
+            "wir": "gebären",
+            "ihr": "gebärt",
+            "sie": "gebären"
+        },
+        "praet": {
+            "ich": "gebar",
+            "du": "gebarst",
+            "er": "gebar",
+            "wir": "gebaren",
+            "ihr": "gebart",
+            "sie": "gebaren"
+        },
+        "part2": "geboren",
+        "aux": "haben"
+    },
+    "unterhalten": {
+        "present": {
+            "ich": "unterhalte",
+            "du": "unterhältst",
+            "er": "unterhält",
+            "wir": "unterhalten",
+            "ihr": "unterhaltet",
+            "sie": "unterhalten"
+        },
+        "praet": {
+            "ich": "unterhielt",
+            "du": "unterhieltst",
+            "er": "unterhielt",
+            "wir": "unterhielten",
+            "ihr": "unterhieltet",
+            "sie": "unterhielten"
+        },
+        "part2": "unterhalten",
+        "aux": "haben"
+    },
+    "teilen": {
+        "present": {
+            "ich": "teile",
+            "du": "teilst",
+            "er": "teilt",
+            "wir": "teilen",
+            "ihr": "teilt",
+            "sie": "teilen"
+        },
+        "praet": {
+            "ich": "teilte",
+            "du": "teiltest",
+            "er": "teilte",
+            "wir": "teilten",
+            "ihr": "teiltet",
+            "sie": "teilten"
+        },
+        "part2": "geteilt",
+        "aux": "haben"
+    },
+    "vermieten": {
+        "present": {
+            "ich": "vermiete",
+            "du": "vermietest",
+            "er": "vermietet",
+            "wir": "vermieten",
+            "ihr": "vermietet",
+            "sie": "vermieten"
+        },
+        "praet": {
+            "ich": "vermietete",
+            "du": "vermietest",
+            "er": "vermietete",
+            "wir": "vermieteten",
+            "ihr": "vermietetet",
+            "sie": "vermieteten"
+        },
+        "part2": "vermietet",
+        "aux": "haben"
+    },
+    "zusammenarbeiten": {
+        "present": {
+            "ich": "arbeite zusammen",
+            "du": "arbeitest zusammen",
+            "er": "arbeitet zusammen",
+            "wir": "arbeiten zusammen",
+            "ihr": "arbeitet zusammen",
+            "sie": "arbeiten zusammen"
+        },
+        "praet": {
+            "ich": "arbeitete zusammen",
+            "du": "arbeitetest zusammen",
+            "er": "arbeitete zusammen",
+            "wir": "arbeiteten zusammen",
+            "ihr": "arbeitetet zusammen",
+            "sie": "arbeiteten zusammen"
+        },
+        "part2": "zusammengearbeitet",
+        "aux": "haben"
+    },
+    "mitteilen": {
+        "present": {
+            "ich": "teile mit",
+            "du": "teilst mit",
+            "er": "teilt mit",
+            "wir": "teilen mit",
+            "ihr": "teilt mit",
+            "sie": "teilen mit"
+        },
+        "praet": {
+            "ich": "teilte mit",
+            "du": "teiltest mit",
+            "er": "teilte mit",
+            "wir": "teilten mit",
+            "ihr": "teiltet mit",
+            "sie": "teilten mit"
+        },
+        "part2": "mitgeteilt",
+        "aux": "haben"
+    },
+    "vermissen": {
+        "present": {
+            "ich": "vermisse",
+            "du": "vermisst",
+            "er": "vermisst",
+            "wir": "vermissen",
+            "ihr": "vermisst",
+            "sie": "vermissen"
+        },
+        "praet": {
+            "ich": "vermisste",
+            "du": "vermisstest",
+            "er": "vermisste",
+            "wir": "vermissten",
+            "ihr": "vermisstet",
+            "sie": "vermissten"
+        },
+        "part2": "vermisst",
+        "aux": "haben"
+    },
+    "trauern": {
+        "present": {
+            "ich": "trauere",
+            "du": "trauerst",
+            "er": "trauert",
+            "wir": "trauern",
+            "ihr": "trauert",
+            "sie": "trauern"
+        },
+        "praet": {
+            "ich": "trauerte",
+            "du": "trauertest",
+            "er": "trauerte",
+            "wir": "trauerten",
+            "ihr": "trauertet",
+            "sie": "trauerten"
+        },
+        "part2": "getrauert",
+        "aux": "haben"
+    },
+    "niesen": {
+        "present": {
+            "ich": "niese",
+            "du": "niest",
+            "er": "niest",
+            "wir": "niesen",
+            "ihr": "niest",
+            "sie": "niesen"
+        },
+        "praet": {
+            "ich": "nieste",
+            "du": "niestest",
+            "er": "nieste",
+            "wir": "niesten",
+            "ihr": "niestet",
+            "sie": "niesten"
+        },
+        "part2": "geniest",
+        "aux": "haben"
+    },
+    "pflegen": {
+        "present": {
+            "ich": "pflege",
+            "du": "pflegst",
+            "er": "pflegt",
+            "wir": "pflegen",
+            "ihr": "pflegt",
+            "sie": "pflegen"
+        },
+        "praet": {
+            "ich": "pflegte",
+            "du": "pflegtest",
+            "er": "pflegte",
+            "wir": "pflegten",
+            "ihr": "pflegtet",
+            "sie": "pflegten"
+        },
+        "part2": "gepflegt",
+        "aux": "haben"
+    },
+    "krankschreiben": {
+        "present": {
+            "ich": "schreibe krank",
+            "du": "schreibst krank",
+            "er": "schreibt krank",
+            "wir": "schreiben krank",
+            "ihr": "schreibt krank",
+            "sie": "schreiben krank"
+        },
+        "praet": {
+            "ich": "schrieb krank",
+            "du": "schriebst krank",
+            "er": "schrieb krank",
+            "wir": "schrieben krank",
+            "ihr": "schriebtet krank",
+            "sie": "schrieben krank"
+        },
+        "part2": "krankgeschrieben",
+        "aux": "haben"
+    },
+    "verschreiben": {
+        "present": {
+            "ich": "verschreibe",
+            "du": "verschreibst",
+            "er": "verschreibt",
+            "wir": "verschreiben",
+            "ihr": "verschreibt",
+            "sie": "verschreiben"
+        },
+        "praet": {
+            "ich": "verschrieb",
+            "du": "verschriebst",
+            "er": "verschrieb",
+            "wir": "verschrieben",
+            "ihr": "verschriebtet",
+            "sie": "verschrieben"
+        },
+        "part2": "verschreiben",
+        "aux": "haben"
+    },
+    "operieren": {
+        "present": {
+            "ich": "operiere",
+            "du": "operierst",
+            "er": "operiert",
+            "wir": "operieren",
+            "ihr": "operiert",
+            "sie": "operieren"
+        },
+        "praet": {
+            "ich": "operierte",
+            "du": "operiertest",
+            "er": "operierte",
+            "wir": "operierten",
+            "ihr": "operiertet",
+            "sie": "operierten"
+        },
+        "part2": "operiert",
+        "aux": "haben"
+    },
+    "schmerzen": {
+        "present": {
+            "ich": "schmerze",
+            "du": "schmerzt",
+            "er": "schmerzt",
+            "wir": "schmerzen",
+            "ihr": "schmerzt",
+            "sie": "schmerzen"
+        },
+        "praet": {
+            "ich": "schmerzte",
+            "du": "schmerztest",
+            "er": "schmerzte",
+            "wir": "schmerzten",
+            "ihr": "schmerztet",
+            "sie": "schmerzten"
+        },
+        "part2": "geschmerzt",
+        "aux": "haben"
+    },
+    "impfen": {
+        "present": {
+            "ich": "impfe",
+            "du": "impfst",
+            "er": "impft",
+            "wir": "impfen",
+            "ihr": "impft",
+            "sie": "impfen"
+        },
+        "praet": {
+            "ich": "impfte",
+            "du": "impftest",
+            "er": "impfte",
+            "wir": "impften",
+            "ihr": "impftet",
+            "sie": "impften"
+        },
+        "part2": "geimpft",
+        "aux": "haben"
+    },
+    "erkranken": {
+        "present": {
+            "ich": "erkranke",
+            "du": "erkrankst",
+            "er": "erkrankt",
+            "wir": "erkranken",
+            "ihr": "erkrankt",
+            "sie": "erkranken"
+        },
+        "praet": {
+            "ich": "erkrankte",
+            "du": "erkranktest",
+            "er": "erkrankte",
+            "wir": "erkrankten",
+            "ihr": "erkranktet",
+            "sie": "erkrankten"
+        },
+        "part2": "erkrankt",
+        "aux": "sein"
+    },
+    "packen": {
+        "present": {
+            "ich": "packe",
+            "du": "packst",
+            "er": "packt",
+            "wir": "packen",
+            "ihr": "packt",
+            "sie": "packen"
+        },
+        "praet": {
+            "ich": "packte",
+            "du": "packtest",
+            "er": "packte",
+            "wir": "packten",
+            "ihr": "packtet",
+            "sie": "packten"
+        },
+        "part2": "gepackt",
+        "aux": "haben"
+    },
+    "abfliegen": {
+        "present": {
+            "ich": "fliege ab",
+            "du": "fliegst ab",
+            "er": "fliegt ab",
+            "wir": "fliegen ab",
+            "ihr": "fliegt ab",
+            "sie": "fliegen ab"
+        },
+        "praet": {
+            "ich": "flog ab",
+            "du": "flogst ab",
+            "er": "flog ab",
+            "wir": "flogen ab",
+            "ihr": "flogtet ab",
+            "sie": "flogen ab"
+        },
+        "part2": "abgeflogen",
+        "aux": "sein"
+    },
+    "einchecken": {
+        "present": {
+            "ich": "checke ein",
+            "du": "checkst ein",
+            "er": "checkt ein",
+            "wir": "checken ein",
+            "ihr": "checkt ein",
+            "sie": "checken ein"
+        },
+        "praet": {
+            "ich": "checkte ein",
+            "du": "checktest ein",
+            "er": "checkte ein",
+            "wir": "checkten ein",
+            "ihr": "checktet ein",
+            "sie": "checkten ein"
+        },
+        "part2": "eingecheckt",
+        "aux": "haben"
+    },
+    "auschecken": {
+        "present": {
+            "ich": "checke aus",
+            "du": "checkst aus",
+            "er": "checkt aus",
+            "wir": "checken aus",
+            "ihr": "checkt aus",
+            "sie": "checken aus"
+        },
+        "praet": {
+            "ich": "checkte aus",
+            "du": "checktest aus",
+            "er": "checkte aus",
+            "wir": "checkten aus",
+            "ihr": "checktet aus",
+            "sie": "checkten aus"
+        },
+        "part2": "ausgecheckt",
+        "aux": "haben"
+    },
+    "verspäten": {
+        "present": {
+            "ich": "verspäte",
+            "du": "verspätest",
+            "er": "verspätet",
+            "wir": "verspäten",
+            "ihr": "verspätet",
+            "sie": "verspäten"
+        },
+        "praet": {
+            "ich": "verspätete",
+            "du": "verspätetest",
+            "er": "verspätete",
+            "wir": "verspäteten",
+            "ihr": "verspätetet",
+            "sie": "verspäteten"
+        },
+        "part2": "verspätet",
+        "aux": "haben"
+    },
+    "ausfall": {
+        "present": {
+            "ich": "falle aus",
+            "du": "fällst aus",
+            "er": "fällt aus",
+            "wir": "fallen aus",
+            "ihr": "fallt aus",
+            "sie": "fallen aus"
+        },
+        "praet": {
+            "ich": "fiel aus",
+            "du": "fielst aus",
+            "er": "fiel aus",
+            "wir": "fielen aus",
+            "ihr": "fielt aus",
+            "sie": "fielen aus"
+        },
+        "part2": "ausgefallen",
+        "aux": "sein"
+    },
+    "nachschlagen": {
+        "present": {
+            "ich": "schlage nach",
+            "du": "schlägst nach",
+            "er": "schlägt nach",
+            "wir": "schlagen nach",
+            "ihr": "schlagt nach",
+            "sie": "schlagen nach"
+        },
+        "praet": {
+            "ich": "schlug nach",
+            "du": "schlugst nach",
+            "er": "schlug nach",
+            "wir": "schlugen nach",
+            "ihr": "schlugt nach",
+            "sie": "schlugen nach"
+        },
+        "part2": "nachgeschlagen",
+        "aux": "haben"
+    },
+    "lehren": {
+        "present": {
+            "ich": "lehre",
+            "du": "lehrst",
+            "er": "lehrt",
+            "wir": "lehren",
+            "ihr": "lehrt",
+            "sie": "lehren"
+        },
+        "praet": {
+            "ich": "lehrte",
+            "du": "lehrtest",
+            "er": "lehrte",
+            "wir": "lehrten",
+            "ihr": "lehrtet",
+            "sie": "lehrten"
+        },
+        "part2": "gelehrt",
+        "aux": "haben"
+    },
+    "prüfen": {
+        "present": {
+            "ich": "prüfe",
+            "du": "prüfst",
+            "er": "prüft",
+            "wir": "prüfen",
+            "ihr": "prüft",
+            "sie": "prüfen"
+        },
+        "praet": {
+            "ich": "prüfte",
+            "du": "prüftest",
+            "er": "prüfte",
+            "wir": "prüften",
+            "ihr": "prüftet",
+            "sie": "prüften"
+        },
+        "part2": "geprüft",
+        "aux": "haben"
+    },
+    "mitschreiben": {
+        "present": {
+            "ich": "schreibe mit",
+            "du": "schreibst mit",
+            "er": "schreibt mit",
+            "wir": "schreiben mit",
+            "ihr": "schreibt mit",
+            "sie": "schreiben mit"
+        },
+        "praet": {
+            "ich": "schrieb mit",
+            "du": "schriebst mit",
+            "er": "schrieb mit",
+            "wir": "schrieben mit",
+            "ihr": "schriebtet mit",
+            "sie": "schrieben mit"
+        },
+        "part2": "mitgeschrieben",
+        "aux": "haben"
+    },
+    "schwänzen": {
+        "present": {
+            "ich": "schwänze",
+            "du": "schwänzt",
+            "er": "schwänzt",
+            "wir": "schwänzen",
+            "ihr": "schwänzt",
+            "sie": "schwänzen"
+        },
+        "praet": {
+            "ich": "schwänzte",
+            "du": "schwänztest",
+            "er": "schwänzte",
+            "wir": "schwänzten",
+            "ihr": "schwänztet",
+            "sie": "schwänzten"
+        },
+        "part2": "geschwänzt",
+        "aux": "haben"
+    },
+    "fürchten": {
+        "present": {
+            "ich": "fürchte",
+            "du": "fürchtest",
+            "er": "fürchtet",
+            "wir": "fürchten",
+            "ihr": "fürchtet",
+            "sie": "fürchten"
+        },
+        "praet": {
+            "ich": "fürchtete",
+            "du": "fürchtest",
+            "er": "fürchtete",
+            "wir": "fürchteten",
+            "ihr": "fürchtetet",
+            "sie": "fürchteten"
+        },
+        "part2": "gefürchtet",
+        "aux": "haben"
+    },
+    "langweilen": {
+        "present": {
+            "ich": "langweile",
+            "du": "langweilst",
+            "er": "langweilt",
+            "wir": "langweilen",
+            "ihr": "langweilt",
+            "sie": "langweilen"
+        },
+        "praet": {
+            "ich": "langweilte",
+            "du": "langweiltest",
+            "er": "langweilte",
+            "wir": "langweilten",
+            "ihr": "langweiltet",
+            "sie": "langweilten"
+        },
+        "part2": "gelangweilt",
+        "aux": "haben"
+    },
+    "wundern": {
+        "present": {
+            "ich": "wundere",
+            "du": "wunderst",
+            "er": "wundert",
+            "wir": "wundern",
+            "ihr": "wundert",
+            "sie": "wundern"
+        },
+        "praet": {
+            "ich": "wunderte",
+            "du": "wundertest",
+            "er": "wunderte",
+            "wir": "wunderten",
+            "ihr": "wundertet",
+            "sie": "wunderten"
+        },
+        "part2": "gewundert",
+        "aux": "haben"
+    },
+    "enttäuschen": {
+        "present": {
+            "ich": "enttäusche",
+            "du": "enttäuschst",
+            "er": "enttäuscht",
+            "wir": "enttäuschen",
+            "ihr": "enttäuscht",
+            "sie": "enttäuschen"
+        },
+        "praet": {
+            "ich": "enttäuschte",
+            "du": "enttäuschtest",
+            "er": "enttäuschte",
+            "wir": "enttäuschten",
+            "ihr": "enttäuschtet",
+            "sie": "enttäuschten"
+        },
+        "part2": "enttäuscht",
+        "aux": "haben"
+    },
+    "handeln": {
+        "present": {
+            "ich": "handle",
+            "du": "handelst",
+            "er": "handelt",
+            "wir": "handeln",
+            "ihr": "handelt",
+            "sie": "handeln"
+        },
+        "praet": {
+            "ich": "handelte",
+            "du": "handeltest",
+            "er": "handelte",
+            "wir": "handelten",
+            "ihr": "handeltet",
+            "sie": "handelten"
+        },
+        "part2": "gehandelt",
+        "aux": "haben"
+    },
+    "nutzen": {
+        "present": {
+            "ich": "nutze",
+            "du": "nutzt",
+            "er": "nutzt",
+            "wir": "nutzen",
+            "ihr": "nutzt",
+            "sie": "nutzen"
+        },
+        "praet": {
+            "ich": "nutzte",
+            "du": "nutztest",
+            "er": "nutzte",
+            "wir": "nutzten",
+            "ihr": "nutztet",
+            "sie": "nutzten"
+        },
+        "part2": "genutzt",
+        "aux": "haben"
+    },
+    "gebrauchen": {
+        "present": {
+            "ich": "gebrauche",
+            "du": "gebrauchst",
+            "er": "gebraucht",
+            "wir": "gebrauchen",
+            "ihr": "gebraucht",
+            "sie": "gebrauchen"
+        },
+        "praet": {
+            "ich": "gebrauchte",
+            "du": "gebrauchtest",
+            "er": "gebrauchte",
+            "wir": "gebrauchten",
+            "ihr": "gebrauchtet",
+            "sie": "gebrauchten"
+        },
+        "part2": "gebraucht",
+        "aux": "haben"
+    },
+    "entstehen": {
+        "present": {
+            "ich": "entstehe",
+            "du": "entstehst",
+            "er": "entsteht",
+            "wir": "entstehen",
+            "ihr": "entsteht",
+            "sie": "entstehen"
+        },
+        "praet": {
+            "ich": "entstand",
+            "du": "entstandst",
+            "er": "entstand",
+            "wir": "entstanden",
+            "ihr": "entstandet",
+            "sie": "entstanden"
+        },
+        "part2": "entstanden",
+        "aux": "sein"
+    },
+    "betreffen": {
+        "present": {
+            "ich": "betreffe",
+            "du": "betriffst",
+            "er": "betrifft",
+            "wir": "betreffen",
+            "ihr": "betrefft",
+            "sie": "betreffen"
+        },
+        "praet": {
+            "ich": "betraf",
+            "du": "betrafst",
+            "er": "betraf",
+            "wir": "betrafen",
+            "ihr": "betraft",
+            "sie": "betrafen"
+        },
+        "part2": "betroffen",
+        "aux": "haben"
+    },
+    "führen": {
+        "present": {
+            "ich": "führe",
+            "du": "führst",
+            "er": "führt",
+            "wir": "führen",
+            "ihr": "führt",
+            "sie": "führen"
+        },
+        "praet": {
+            "ich": "führte",
+            "du": "führtest",
+            "er": "führte",
+            "wir": "führten",
+            "ihr": "führtet",
+            "sie": "führten"
+        },
+        "part2": "geführt",
+        "aux": "haben"
+    },
+    "füllen": {
+        "present": {
+            "ich": "fülle",
+            "du": "füllst",
+            "er": "füllt",
+            "wir": "füllen",
+            "ihr": "füllt",
+            "sie": "füllen"
+        },
+        "praet": {
+            "ich": "füllte",
+            "du": "fülltest",
+            "er": "füllte",
+            "wir": "füllten",
+            "ihr": "fülltet",
+            "sie": "füllten"
+        },
+        "part2": "gefüllt",
+        "aux": "haben"
+    },
+    "sinken": {
+        "present": {
+            "ich": "sinke",
+            "du": "sinkst",
+            "er": "sinkt",
+            "wir": "sinken",
+            "ihr": "sinkt",
+            "sie": "sinken"
+        },
+        "praet": {
+            "ich": "sank",
+            "du": "sankst",
+            "er": "sank",
+            "wir": "sanken",
+            "ihr": "sankt",
+            "sie": "sanken"
+        },
+        "part2": "gesunken",
+        "aux": "sein"
+    },
+    "stoppen": {
+        "present": {
+            "ich": "stoppe",
+            "du": "stoppst",
+            "er": "stoppt",
+            "wir": "stoppen",
+            "ihr": "stoppt",
+            "sie": "stoppen"
+        },
+        "praet": {
+            "ich": "stoppte",
+            "du": "stopptest",
+            "er": "stoppte",
+            "wir": "stoppten",
+            "ihr": "stopptet",
+            "sie": "stoppten"
+        },
+        "part2": "gestoppt",
+        "aux": "haben"
+    },
+    "stören": {
+        "present": {
+            "ich": "störe",
+            "du": "störst",
+            "er": "stört",
+            "wir": "stören",
+            "ihr": "stört",
+            "sie": "stören"
+        },
+        "praet": {
+            "ich": "störte",
+            "du": "störtest",
+            "er": "störte",
+            "wir": "störten",
+            "ihr": "störtet",
+            "sie": "störten"
+        },
+        "part2": "gestört",
+        "aux": "haben"
+    },
+    "strecken": {
+        "present": {
+            "ich": "strecke",
+            "du": "streckst",
+            "er": "streckt",
+            "wir": "strecken",
+            "ihr": "streckt",
+            "sie": "strecken"
+        },
+        "praet": {
+            "ich": "streckte",
+            "du": "strecktest",
+            "er": "streckte",
+            "wir": "streckten",
+            "ihr": "strecktet",
+            "sie": "streckten"
+        },
+        "part2": "gestreckt",
+        "aux": "haben"
+    },
+    "stürzen": {
+        "present": {
+            "ich": "stürze",
+            "du": "stürzt",
+            "er": "stürzt",
+            "wir": "stürzen",
+            "ihr": "stürzt",
+            "sie": "stürzen"
+        },
+        "praet": {
+            "ich": "stürzte",
+            "du": "stürztest",
+            "er": "stürzte",
+            "wir": "stürzten",
+            "ihr": "stürztet",
+            "sie": "stürzten"
+        },
+        "part2": "gestürzt",
+        "aux": "sein"
+    },
+    "träumen": {
+        "present": {
+            "ich": "träume",
+            "du": "träumst",
+            "er": "träumt",
+            "wir": "träumen",
+            "ihr": "träumt",
+            "sie": "träumen"
+        },
+        "praet": {
+            "ich": "träumte",
+            "du": "träumtest",
+            "er": "träumte",
+            "wir": "träumten",
+            "ihr": "träumtet",
+            "sie": "träumten"
+        },
+        "part2": "geträumt",
+        "aux": "haben"
+    },
+    "trennen": {
+        "present": {
+            "ich": "trenne",
+            "du": "trennst",
+            "er": "trennt",
+            "wir": "trennen",
+            "ihr": "trennt",
+            "sie": "trennen"
+        },
+        "praet": {
+            "ich": "trennte",
+            "du": "trenntest",
+            "er": "trennte",
+            "wir": "trennten",
+            "ihr": "trenntet",
+            "sie": "trennten"
+        },
+        "part2": "getrennt",
+        "aux": "haben"
+    },
+    "üben": {
+        "present": {
+            "ich": "übe",
+            "du": "übst",
+            "er": "übt",
+            "wir": "üben",
+            "ihr": "übt",
+            "sie": "üben"
+        },
+        "praet": {
+            "ich": "übte",
+            "du": "übtest",
+            "er": "übte",
+            "wir": "übten",
+            "ihr": "übtet",
+            "sie": "übten"
+        },
+        "part2": "geübt",
+        "aux": "haben"
+    },
+    "umfassen": {
+        "present": {
+            "ich": "umfasse",
+            "du": "umfasst",
+            "er": "umfasst",
+            "wir": "umfassen",
+            "ihr": "umfasst",
+            "sie": "umfassen"
+        },
+        "praet": {
+            "ich": "umfasste",
+            "du": "umfasstest",
+            "er": "umfasste",
+            "wir": "umfassten",
+            "ihr": "umfasstet",
+            "sie": "umfassten"
+        },
+        "part2": "umfasst",
+        "aux": "haben"
+    },
+    "umsetzen": {
+        "present": {
+            "ich": "setze um",
+            "du": "setzt um",
+            "er": "setzt um",
+            "wir": "setzen um",
+            "ihr": "setzt um",
+            "sie": "setzen um"
+        },
+        "praet": {
+            "ich": "setzte um",
+            "du": "setztest um",
+            "er": "setzte um",
+            "wir": "setzten um",
+            "ihr": "setztet um",
+            "sie": "setzten um"
+        },
+        "part2": "umgesetzt",
+        "aux": "haben"
+    },
+    "unterbrechen": {
+        "present": {
+            "ich": "unterbreche",
+            "du": "unterbrichst",
+            "er": "unterbricht",
+            "wir": "unterbrechen",
+            "ihr": "unterbrecht",
+            "sie": "unterbrechen"
+        },
+        "praet": {
+            "ich": "unterbrach",
+            "du": "unterbrachst",
+            "er": "unterbrach",
+            "wir": "unterbrachen",
+            "ihr": "unterbracht",
+            "sie": "unterbrachen"
+        },
+        "part2": "unterbrochen",
+        "aux": "haben"
+    },
+    "verändern": {
+        "present": {
+            "ich": "verändere",
+            "du": "veränderst",
+            "er": "verändert",
+            "wir": "verändern",
+            "ihr": "verändert",
+            "sie": "verändern"
+        },
+        "praet": {
+            "ich": "veränderte",
+            "du": "verändertest",
+            "er": "veränderte",
+            "wir": "veränderten",
+            "ihr": "verändertet",
+            "sie": "veränderten"
+        },
+        "part2": "verändert",
+        "aux": "haben"
+    },
+    "verteilen": {
+        "present": {
+            "ich": "verteile",
+            "du": "verteilst",
+            "er": "verteilt",
+            "wir": "verteilen",
+            "ihr": "verteilt",
+            "sie": "verteilen"
+        },
+        "praet": {
+            "ich": "verteilte",
+            "du": "verteiltest",
+            "er": "verteilte",
+            "wir": "verteilten",
+            "ihr": "verteiltet",
+            "sie": "verteilten"
+        },
+        "part2": "verteilt",
+        "aux": "haben"
+    },
+    "heiraten": {
+        "present": {
+            "ich": "heirate",
+            "du": "heiratest",
+            "er": "heiratet",
+            "wir": "heiraten",
+            "ihr": "heiratet",
+            "sie": "heiraten"
+        },
+        "praet": {
+            "ich": "heiratete",
+            "du": "heiratetest",
+            "er": "heiratete",
+            "wir": "heirateten",
+            "ihr": "heiratetet",
+            "sie": "heirateten"
+        },
+        "part2": "geheiratet",
+        "aux": "haben"
+    },
+    "abgeben": {
+        "present": {
+            "ich": "gebe ab",
+            "du": "gibst ab",
+            "er": "gibt ab",
+            "wir": "geben ab",
+            "ihr": "gebt ab",
+            "sie": "geben ab"
+        },
+        "praet": {
+            "ich": "gab ab",
+            "du": "gabst ab",
+            "er": "gab ab",
+            "wir": "gaben ab",
+            "ihr": "gabt ab",
+            "sie": "gaben ab"
+        },
+        "part2": "abgegeben",
+        "aux": "haben"
+    },
+    "abschicken": {
+        "present": {
+            "ich": "schicke ab",
+            "du": "schickst ab",
+            "er": "schickt ab",
+            "wir": "schicken ab",
+            "ihr": "schickt ab",
+            "sie": "schicken ab"
+        },
+        "praet": {
+            "ich": "schickte ab",
+            "du": "schicktest ab",
+            "er": "schickte ab",
+            "wir": "schickten ab",
+            "ihr": "schicktet ab",
+            "sie": "schickten ab"
+        },
+        "part2": "abgeschickt",
+        "aux": "haben"
+    },
+    "bewundern": {
+        "present": {
+            "ich": "bewundere",
+            "du": "bewunderst",
+            "er": "bewundert",
+            "wir": "bewundern",
+            "ihr": "bewundert",
+            "sie": "bewundern"
+        },
+        "praet": {
+            "ich": "bewunderte",
+            "du": "bewundertest",
+            "er": "bewunderte",
+            "wir": "bewunderten",
+            "ihr": "bewundertet",
+            "sie": "bewunderten"
+        },
+        "part2": "bewundert",
+        "aux": "haben"
+    },
+    "entkommen": {
+        "present": {
+            "ich": "entkomme",
+            "du": "entkommst",
+            "er": "entkommt",
+            "wir": "entkommen",
+            "ihr": "entkommt",
+            "sie": "entkommen"
+        },
+        "praet": {
+            "ich": "entkam",
+            "du": "entkamst",
+            "er": "entkam",
+            "wir": "entkamen",
+            "ihr": "entkamt",
+            "sie": "entkamen"
+        },
+        "part2": "entkommen",
+        "aux": "sein"
+    },
+    "mitkommen": {
+        "present": {
+            "ich": "komme mit",
+            "du": "kommst mit",
+            "er": "kommt mit",
+            "wir": "kommen mit",
+            "ihr": "kommt mit",
+            "sie": "kommen mit"
+        },
+        "praet": {
+            "ich": "kam mit",
+            "du": "kamst mit",
+            "er": "kam mit",
+            "wir": "kamen mit",
+            "ihr": "kamt mit",
+            "sie": "kamen mit"
+        },
+        "part2": "mitgekommen",
+        "aux": "sein"
+    },
+    "zurückkommen": {
+        "present": {
+            "ich": "komme zurück",
+            "du": "kommst zurück",
+            "er": "kommt zurück",
+            "wir": "kommen zurück",
+            "ihr": "kommt zurück",
+            "sie": "kommen zurück"
+        },
+        "praet": {
+            "ich": "kam zurück",
+            "du": "kamst zurück",
+            "er": "kam zurück",
+            "wir": "kamen zurück",
+            "ihr": "kamt zurück",
+            "sie": "kamen zurück"
+        },
+        "part2": "zurückgekommen",
+        "aux": "sein"
+    },
+    "mitbringen": {
+        "present": {
+            "ich": "bringe mit",
+            "du": "bringst mit",
+            "er": "bringt mit",
+            "wir": "bringen mit",
+            "ihr": "bringt mit",
+            "sie": "bringen mit"
+        },
+        "praet": {
+            "ich": "brachte mit",
+            "du": "brachtest mit",
+            "er": "brachte mit",
+            "wir": "brachten mit",
+            "ihr": "brachtet mit",
+            "sie": "brachten mit"
+        },
+        "part2": "mitgebracht",
+        "aux": "haben"
+    },
+    "zurückbringen": {
+        "present": {
+            "ich": "bringe zurück",
+            "du": "bringst zurück",
+            "er": "bringt zurück",
+            "wir": "bringen zurück",
+            "ihr": "bringt zurück",
+            "sie": "bringen zurück"
+        },
+        "praet": {
+            "ich": "brachte zurück",
+            "du": "brachtest zurück",
+            "er": "brachte zurück",
+            "wir": "brachten zurück",
+            "ihr": "brachtet zurück",
+            "sie": "brachten zurück"
+        },
+        "part2": "zurückgebracht",
+        "aux": "haben"
+    },
+    "ausführen": {
+        "present": {
+            "ich": "führe aus",
+            "du": "führst aus",
+            "er": "führt aus",
+            "wir": "führen aus",
+            "ihr": "führt aus",
+            "sie": "führen aus"
+        },
+        "praet": {
+            "ich": "führte aus",
+            "du": "führtest aus",
+            "er": "führte aus",
+            "wir": "führten aus",
+            "ihr": "führtet aus",
+            "sie": "führten aus"
+        },
+        "part2": "ausgeführt",
+        "aux": "haben"
+    },
+    "fortführen": {
+        "present": {
+            "ich": "führe fort",
+            "du": "führst fort",
+            "er": "führt fort",
+            "wir": "führen fort",
+            "ihr": "führt fort",
+            "sie": "führen fort"
+        },
+        "praet": {
+            "ich": "führte fort",
+            "du": "führtest fort",
+            "er": "führte fort",
+            "wir": "führten fort",
+            "ihr": "führtet fort",
+            "sie": "führten fort"
+        },
+        "part2": "fortgeführt",
+        "aux": "haben"
+    },
+    "ummelden": {
+        "present": {
+            "ich": "melde um",
+            "du": "meldest um",
+            "er": "meldet um",
+            "wir": "melden um",
+            "ihr": "meldet um",
+            "sie": "melden um"
+        },
+        "praet": {
+            "ich": "meldete um",
+            "du": "meldetest um",
+            "er": "meldete um",
+            "wir": "meldeten um",
+            "ihr": "meldetet um",
+            "sie": "meldeten um"
+        },
+        "part2": "umgemeldet",
+        "aux": "haben"
+    },
+    "schminken": {
+        "present": {
+            "ich": "schminke",
+            "du": "schminkst",
+            "er": "schminkt",
+            "wir": "schminken",
+            "ihr": "schminkt",
+            "sie": "schminken"
+        },
+        "praet": {
+            "ich": "schminkte",
+            "du": "schminktest",
+            "er": "schminkte",
+            "wir": "schminkten",
+            "ihr": "schminktet",
+            "sie": "schminkten"
+        },
+        "part2": "geschminkt",
+        "aux": "haben"
+    },
+    "wiederkommen": {
+        "present": {
+            "ich": "komme wieder",
+            "du": "kommst wieder",
+            "er": "kommt wieder",
+            "wir": "kommen wieder",
+            "ihr": "kommt wieder",
+            "sie": "kommen wieder"
+        },
+        "praet": {
+            "ich": "kam wieder",
+            "du": "kamst wieder",
+            "er": "kam wieder",
+            "wir": "kamen wieder",
+            "ihr": "kamt wieder",
+            "sie": "kamen wieder"
+        },
+        "part2": "wiedergekommen",
+        "aux": "sein"
+    },
+    "herkommen": {
+        "present": {
+            "ich": "komme her",
+            "du": "kommst her",
+            "er": "kommt her",
+            "wir": "kommen her",
+            "ihr": "kommt her",
+            "sie": "kommen her"
+        },
+        "praet": {
+            "ich": "kam her",
+            "du": "kamst her",
+            "er": "kam her",
+            "wir": "kamen her",
+            "ihr": "kamt her",
+            "sie": "kamen her"
+        },
+        "part2": "hergekommen",
+        "aux": "sein"
+    },
+    "hingehen": {
+        "present": {
+            "ich": "gehe hin",
+            "du": "gehst hin",
+            "er": "geht hin",
+            "wir": "gehen hin",
+            "ihr": "geht hin",
+            "sie": "gehen hin"
+        },
+        "praet": {
+            "ich": "ging hin",
+            "du": "gingst hin",
+            "er": "ging hin",
+            "wir": "gingen hin",
+            "ihr": "gingt hin",
+            "sie": "gingen hin"
+        },
+        "part2": "hingegangen",
+        "aux": "sein"
+    },
+    "vorbeikommen": {
+        "present": {
+            "ich": "komme vorbei",
+            "du": "kommst vorbei",
+            "er": "kommt vorbei",
+            "wir": "kommen vorbei",
+            "ihr": "kommt vorbei",
+            "sie": "kommen vorbei"
+        },
+        "praet": {
+            "ich": "kam vorbei",
+            "du": "kamst vorbei",
+            "er": "kam vorbei",
+            "wir": "kamen vorbei",
+            "ihr": "kamt vorbei",
+            "sie": "kamen vorbei"
+        },
+        "part2": "vorbeigekommen",
+        "aux": "sein"
+    },
+    "ausladen": {
+        "present": {
+            "ich": "lade aus",
+            "du": "lädst aus",
+            "er": "lädt aus",
+            "wir": "laden aus",
+            "ihr": "ladet aus",
+            "sie": "laden aus"
+        },
+        "praet": {
+            "ich": "lud aus",
+            "du": "ludst aus",
+            "er": "lud aus",
+            "wir": "luden aus",
+            "ihr": "ludet aus",
+            "sie": "luden aus"
+        },
+        "part2": "ausgeladen",
+        "aux": "haben"
+    },
+    "nachmachen": {
+        "present": {
+            "ich": "mache nach",
+            "du": "machst nach",
+            "er": "macht nach",
+            "wir": "machen nach",
+            "ihr": "macht nach",
+            "sie": "machen nach"
+        },
+        "praet": {
+            "ich": "machte nach",
+            "du": "machtest nach",
+            "er": "machte nach",
+            "wir": "machten nach",
+            "ihr": "machtet nach",
+            "sie": "machten nach"
+        },
+        "part2": "nachgemacht",
+        "aux": "haben"
+    },
+    "mitgeben": {
+        "present": {
+            "ich": "gebe mit",
+            "du": "gibst mit",
+            "er": "gibt mit",
+            "wir": "geben mit",
+            "ihr": "gebt mit",
+            "sie": "geben mit"
+        },
+        "praet": {
+            "ich": "gab mit",
+            "du": "gabst mit",
+            "er": "gab mit",
+            "wir": "gaben mit",
+            "ihr": "gabt mit",
+            "sie": "gaben mit"
+        },
+        "part2": "mitgegeben",
+        "aux": "haben"
+    },
+    "nachgehen": {
+        "present": {
+            "ich": "gehe nach",
+            "du": "gehst nach",
+            "er": "geht nach",
+            "wir": "gehen nach",
+            "ihr": "geht nach",
+            "sie": "gehen nach"
+        },
+        "praet": {
+            "ich": "ging nach",
+            "du": "gingst nach",
+            "er": "ging nach",
+            "wir": "gingen nach",
+            "ihr": "gingt nach",
+            "sie": "gingen nach"
+        },
+        "part2": "nachgegangen",
+        "aux": "sein"
+    },
+    "bevorzugen": {
+        "present": {
+            "ich": "bevorzuge",
+            "du": "bevorzugst",
+            "er": "bevorzugt",
+            "wir": "bevorzugen",
+            "ihr": "bevorzugt",
+            "sie": "bevorzugen"
+        },
+        "praet": {
+            "ich": "bevorzugte",
+            "du": "bevorzugtest",
+            "er": "bevorzugte",
+            "wir": "bevorzugten",
+            "ihr": "bevorzugtet",
+            "sie": "bevorzugten"
+        },
+        "part2": "bevorzugt",
+        "aux": "haben"
+    },
+    "vorhaben": {
+        "present": {
+            "ich": "habe vor",
+            "du": "hast vor",
+            "er": "hat vor",
+            "wir": "haben vor",
+            "ihr": "habt vor",
+            "sie": "haben vor"
+        },
+        "praet": {
+            "ich": "hatte vor",
+            "du": "hattest vor",
+            "er": "hatte vor",
+            "wir": "hatten vor",
+            "ihr": "hattet vor",
+            "sie": "hatten vor"
+        },
+        "part2": "vorgehabt",
+        "aux": "haben"
     }
 };

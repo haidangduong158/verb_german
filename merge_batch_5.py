@@ -3,7 +3,7 @@ import os
 
 def merge():
     main_file = r'd:\German\verb_german\verbs.js'
-    new_file = r'd:\German\verb_german\batch_5_new.js'
+    new_file = r'd:\German\verb_german\batch_10.js'
     
     if not os.path.exists(main_file):
         print(f"Error: {main_file} not found")
