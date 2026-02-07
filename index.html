@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="vi">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Check chia động từ tiếng Đức</title>
+  <title>Deutsch Verbkonjugation prüfen</title>
   <style>
     :root {
       --primary: #2563eb;
@@ -41,23 +41,23 @@
 </head>
 <body>
   <h1>🇩🇪 German Verb Master</h1>
-  <div style="font-size: 14px; color: #64748b; margin-bottom: 20px;">Học chia động từ chuyên nghiệp.</div>
+  <div style="font-size: 14px; color: #64748b; margin-bottom: 20px;">Deutsch Verben professionell lernen.</div>
 
   <div class="card">
     <div class="row">
       <div style="flex:2; min-width:240px" class="form-group">
-        <label>Động từ gốc (Infinitiv)</label>
-        <input id="verb" placeholder="Ví dụ: gehen, machen..." autocomplete="off">
+        <label>Infinitiv</label>
+        <input id="verb" placeholder="z. B. gehen, machen..." autocomplete="off">
       </div>
       <div style="flex:1; min-width:220px" class="form-group">
-        <label>Chế độ luyện tập</label>
+        <label>Übungsmodus</label>
         <select id="mode">
-          <option value="common">🔥 Thông dụng: Präsens + Perfekt</option>
-          <option value="rare">📚 Nâng cao: Präteritum (đầy đủ)</option>
+          <option value="common">🔥 Gebräuchlich: Präsens + Perfekt</option>
+          <option value="rare">📚 Fortgeschritten: Präteritum (vollständig)</option>
         </select>
       </div>
     </div>
-    <div class="hint">Tự động nhận diện không dấu (a, o, u, ss).</div>
+    <div class="hint">Automatische Erkennung ohne Umlaute (a, o, u, ss).</div>
   </div>
 
   <div id="inputsContainer">
@@ -94,17 +94,17 @@
   </div>
 
   <div class="row">
-    <button id="submitBtn">Kiểm tra đáp án</button>
-    <button class="secondary" id="clearBtn">Làm mới</button>
-    <button class="secondary" id="fillExample">Xem đáp án</button>
+    <button id="submitBtn">Prüfen</button>
+    <button class="secondary" id="clearBtn">Zurücksetzen</button>
+    <button class="secondary" id="fillExample">Lösung anzeigen</button>
   </div>
 
   <div class="card">
     <div class="row" style="justify-content:space-between;align-items:center; margin-bottom: 12px">
-      <b style="font-size: 18px">Kết quả</b>
+      <b style="font-size: 18px">Ergebnis</b>
       <span class="small mono" id="dbStatus">Loading DB...</span>
     </div>
-    <div id="result" class="result">Nhập từ để bắt đầu.</div>
+    <div id="result" class="result">Geben Sie ein Verb ein, um zu beginnen.</div>
   </div>
 
   <script src="verbs.js"></script>
@@ -112,7 +112,7 @@
 let DB = {};
 
 /**
- * Tải database
+ * Datenbank laden
  */
 function loadDB() {
   if (window.VERB_DB) {
@@ -121,7 +121,7 @@ function loadDB() {
     return;
   }
   
-  // Script dự phòng nếu vẫn muốn dùng fetch (khi chạy server)
+  // Fallback-Skript für Fetch
   fetch('verbs.json')
     .then(r => r.json())
     .then(data => {
@@ -130,8 +130,8 @@ function loadDB() {
     })
     .catch(err => {
       console.error(err);
-      $("dbStatus").innerHTML = `<span class="bad">Lỗi tải DB!</span>`;
-      $("result").innerHTML = `<div class="bad">Không tìm thấy file <b>verbs.js</b> hoặc <b>verbs.json</b>.</div>`;
+      $("dbStatus").innerHTML = `<span class="bad">DB-Fehler!</span>`;
+      $("result").innerHTML = `<div class="bad">Datei <b>verbs.js</b> oder <b>verbs.json</b> nicht gefunden.</div>`;
     });
 }
 
@@ -152,7 +152,7 @@ function setModeUI() {
   const mode = $("mode").value;
   $("formCommon").style.display = (mode === "common") ? "" : "none";
   $("formRare").style.display = (mode === "rare") ? "" : "none";
-  $("result").textContent = "Nhập từ để bắt đầu.";
+  $("result").textContent = "Geben Sie ein Verb ein, um zu beginnen.";
 }
 
 $("mode").addEventListener("change", setModeUI);
@@ -167,8 +167,8 @@ function renderLine(label, user, correct) {
         <span class="mono" style="width: 16px; flex-shrink: 0;">${icon}</span>
         <b style="min-width: 40px;">${label}:</b>
         <div style="flex-grow: 1;">
-          <span class="mono">${escapeHtml(user || "(trống)")}</span>
-          ${!isCorrect ? `<br><small style="color:#64748b">Đúng: </small><span class="mono ok">${escapeHtml(correct)}</span>` : ''}
+          <span class="mono">${escapeHtml(user || "(leer)")}</span>
+          ${!isCorrect ? `<br><small style="color:#64748b">Richtig: </small><span class="mono ok">${escapeHtml(correct)}</span>` : ''}
         </div>
       </div>
     </div>`;
@@ -182,26 +182,26 @@ function escapeHtml(str) {
 
 function updateDbStatus() {
   const count = Object.keys(DB).length;
-  $("dbStatus").textContent = `Database: ${count} động từ`;
+  $("dbStatus").textContent = `Datenbank: ${count} Verben`;
 }
 
 $("submitBtn").addEventListener("click", () => {
   const verbKey = $("verb").value.trim().toLowerCase();
   if (!verbKey) {
-    $("result").innerHTML = `<span class="bad">Nhập động từ gốc trước đã.</span>`;
+    $("result").innerHTML = `<span class="bad">Bitte geben Sie zuerst den Infinitiv ein.</span>`;
     return;
   }
 
   const data = DB[verbKey];
   if (!data) {
     $("result").innerHTML = `
-      <div class="result-line bad"><b>Không tìm thấy:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>
-      <div class="hint">Hãy thêm từ này vào file <span class="mono">verbs.js</span></div>`;
+      <div class="result-line bad"><b>Nicht gefunden:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>
+      <div class="hint">Bitte fügen Sie dieses Verb in die Datei <span class="mono">verbs.js</span> ein.</div>`;
     return;
   }
 
   const mode = $("mode").value;
-  let html = `<div style="margin-bottom: 12px" class="ok"><b>Kết quả cho:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>`;
+  let html = `<div style="margin-bottom: 12px" class="ok"><b>Ergebnis für:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>`;
 
   if (mode === "common") {
     html += `<span class="section-title">Präsens</span><div class="grid">`;
@@ -228,23 +228,23 @@ $("clearBtn").addEventListener("click", () => {
   inputs.forEach(i => {
     if (i.id !== "verb") i.value = "";
   });
-  $("result").textContent = "Nhập từ để bắt đầu.";
+  $("result").textContent = "Geben Sie ein Verb ein, um zu beginnen.";
 });
 
 $("fillExample").addEventListener("click", () => {
   const verbKey = $("verb").value.trim().toLowerCase();
   if (!verbKey) {
-    alert("Vui lòng nhập động từ gốc trước.");
+    alert("Bitte geben Sie zuerst den Infinitiv ein.");
     return;
   }
   
   const data = DB[verbKey];
   if (!data) {
-    alert("Không tìm thấy động từ này trong database.");
+    alert("Verb in der Datenbank nicht gefunden.");
     return;
   }
 
-  // Điền Präsens & Perfekt
+  // Präsens & Perfekt ausfüllen
   $("c_p_ich").value = data.present.ich;
   $("c_p_du").value = data.present.du;
   $("c_p_er").value = data.present.er;
@@ -254,7 +254,7 @@ $("fillExample").addEventListener("click", () => {
   $("c_aux").value = data.aux;
   $("c_part2").value = data.part2;
 
-  // Điền Präteritum
+  // Präteritum ausfüllen
   $("r_ich").value = data.praet.ich;
   $("r_du").value = data.praet.du;
   $("r_er").value = data.praet.er;
