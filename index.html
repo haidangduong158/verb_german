@@ -253,8 +253,14 @@
       </div>
       
       <div class="button-group" style="justify-content: center;">
-        <button class="primary" disabled style="opacity: 0.5; cursor: not-allowed;">Correct (Coming Soon)</button>
-        <button class="secondary" disabled style="opacity: 0.5; cursor: not-allowed;">Weak Points</button>
+        <button class="primary" id="aiCorrectBtn">Mit AI korrigieren (Prompt kopieren)</button>
+        <button class="primary" id="saveWritingBtn" style="background: #34c759;">Speichern (Lưu bài)</button>
+        <button class="secondary" id="clearWritingBtn">Löschen</button>
+      </div>
+
+      <div id="saved-writings-container" style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 20px;">
+        <span class="section-title">Gespeicherte Texte (Bài đã lưu)</span>
+        <div id="saved-list"></div>
       </div>
     </div>
   </div>
@@ -262,6 +268,109 @@
   <script src="verbs.js"></script>
 <script>
 let DB = {};
+
+// --- Saved Writings Logic ---
+function loadSavedWritings() {
+  const writings = JSON.parse(localStorage.getItem('german_writings') || '[]');
+  const list = document.getElementById('saved-list');
+  list.innerHTML = writings.length ? '' : '<p style="color:#86868b; text-align:center">Keine gespeicherten Texte.</p>';
+  
+  writings.forEach((w, idx) => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.style.padding = '20px';
+    div.style.marginBottom = '15px';
+    div.style.background = '#fbfbfd';
+    div.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 10px">
+        <div>
+          <b style="font-size: 16px">${escapeHtml(w.title)}</b><br>
+          <small style="color:#86868b">${w.date} | Level: ${w.level} | Topic: ${w.topic}</small>
+        </div>
+        <button onclick="deleteWriting(${idx})" style="background:none; border:none; color:#ff3b30; cursor:pointer; font-size:14px">Löschen</button>
+      </div>
+      <div style="white-space: pre-wrap; font-size: 15px; color: #333;">${escapeHtml(w.text)}</div>
+    `;
+    list.appendChild(div);
+  });
+}
+
+function deleteWriting(idx) {
+  if (!confirm("Bài này sẽ bị xóa?")) return;
+  const writings = JSON.parse(localStorage.getItem('german_writings') || '[]');
+  writings.splice(idx, 1);
+  localStorage.setItem('german_writings', JSON.stringify(writings));
+  loadSavedWritings();
+}
+
+document.getElementById('saveWritingBtn').addEventListener('click', () => {
+  const text = document.querySelector('.writing-area').value;
+  if (!text.trim()) {
+    alert("Nội dung trống!");
+    return;
+  }
+  
+  const title = prompt("Nhập tiêu đề hoặc tên bài viết:", `Bài viết ${new Date().toLocaleDateString()}`);
+  if (!title) return;
+
+  const newWriting = {
+    title: title,
+    text: text,
+    level: document.getElementById('writing-level').value,
+    topic: document.getElementById('writing-topic').value,
+    date: new Date().toLocaleString()
+  };
+
+  const writings = JSON.parse(localStorage.getItem('german_writings') || '[]');
+  writings.unshift(newWriting); // Add to beginning
+  localStorage.setItem('german_writings', JSON.stringify(writings));
+  loadSavedWritings();
+  alert("Đã lưu bài viết thành công!");
+});
+
+loadSavedWritings();
+// -----------------------------
+
+// --- AI Writing Logic ---
+document.getElementById('aiCorrectBtn').addEventListener('click', () => {
+  const level = document.getElementById('writing-level').value;
+  const topic = document.getElementById('writing-topic').value;
+  const text = document.querySelector('.writing-area').value;
+
+  if (!text.trim()) {
+    alert("Bitte schreiben Sie zuerst etwas!");
+    return;
+  }
+
+  const prompt = `Du bist một giáo viên tiếng Đức chuyên nghiệp. Hãy kiểm tra và sửa lỗi bài viết sau đây:
+Trình độ: ${level}
+Chủ đề: ${topic}
+Nội dung bài viết:
+"${text}"
+
+Yêu cầu:
+1. Sửa lỗi ngữ pháp và từ vựng.
+2. Giải thích ngắn gọn các lỗi sai bằng tiếng Việt.
+3. Đề xuất cách diễn đạt tự nhiên hơn (đúng trình độ ${level}).
+4. Đánh giá bài viết trên thang điểm 10.`;
+
+  navigator.clipboard.writeText(prompt).then(() => {
+    const btn = document.getElementById('aiCorrectBtn');
+    const originalText = btn.innerText;
+    btn.innerText = "✅ Prompt kopiert! (Dán vào ChatGPT)";
+    btn.style.background = "#34c759";
+    
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.style.background = "";
+    }, 3000);
+  });
+});
+
+document.getElementById('clearWritingBtn').addEventListener('click', () => {
+  document.querySelector('.writing-area').value = "";
+});
+// ------------------------
 
 function showPage(pageId) {
   document.querySelectorAll(`.nav-item`).forEach(btn => {
