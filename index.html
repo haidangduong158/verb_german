@@ -41,6 +41,23 @@
     .result-line.bad { border-left: 4px solid var(--bad); }
     .ok { color: var(--ok); }
     .bad { color: var(--bad); }
+    /* Modal */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:999; justify-content:center; align-items:center; }
+    .modal-overlay.open { display:flex; }
+    .modal-box { background:#fff; border-radius:20px; padding:32px; width:90%; max-width:420px; box-shadow:0 20px 60px rgba(0,0,0,0.2); }
+    .modal-box h3 { margin:0 0 16px; font-size:20px; }
+    .modal-box input { margin-bottom:16px; }
+    .modal-actions { display:flex; gap:10px; justify-content:flex-end; }
+    /* Saved item */
+    .saved-item { background:#fff; border-radius:16px; margin:12px 0; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden; }
+    .saved-header { display:flex; align-items:center; padding:16px 20px; cursor:pointer; gap:10px; }
+    .saved-header:hover { background:#f5f5f7; }
+    .saved-header .title { font-weight:600; flex:1; }
+    .saved-header .date { font-size:12px; color:#86868b; }
+    .saved-header .del-btn { background:none; border:none; color:#ff3b30; cursor:pointer; font-size:18px; padding:4px 8px; border-radius:8px; }
+    .saved-header .del-btn:hover { background:#fff0f0; }
+    .saved-body { display:none; padding:0 20px 20px; white-space:pre-wrap; border-top:1px solid #f0f0f5; font-size:15px; line-height:1.6; }
+    .saved-body.open { display:block; }
   </style>
 </head>
 <body>
@@ -115,6 +132,18 @@
       </div>
 
       <div id="saved-list"></div>
+    </div>
+  </div>
+
+  <!-- Modal nhập tên chủ đề -->
+  <div class="modal-overlay" id="save-modal">
+    <div class="modal-box">
+      <h3>📝 Đặt tên chủ đề</h3>
+      <input id="topic-input" placeholder="Ví dụ: E-Mail, Bewerbung..." />
+      <div class="modal-actions">
+        <button class="secondary" onclick="closeModal()">Huỷ</button>
+        <button class="primary" onclick="confirmSave()">Lưu bài ✓</button>
+      </div>
     </div>
   </div>
 
@@ -205,16 +234,57 @@
     }
 
     function saveText() {
-      const text = $('w-text').value; if (!text) return;
+      if (!$('w-text').value.trim()) return alert("Chưa có nội dung để lưu!");
+      $('topic-input').value = '';
+      $('save-modal').classList.add('open');
+      setTimeout(() => $('topic-input').focus(), 100);
+    }
+
+    function confirmSave() {
+      const topic = $('topic-input').value.trim() || 'Không tên';
+      const text = $('w-text').value.trim();
       const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
-      list.unshift({ text, date: new Date().toLocaleString() });
+      list.unshift({ topic, text, date: new Date().toLocaleDateString('vi-VN', {day:'2-digit',month:'2-digit',year:'numeric'}) });
       localStorage.setItem('german_writings', JSON.stringify(list));
+      closeModal();
       renderSaved();
     }
 
+    function closeModal() {
+      $('save-modal').classList.remove('open');
+    }
+
+    // Đóng modal khi bấm ra ngoài
+    $('save-modal').addEventListener('click', e => { if (e.target === $('save-modal')) closeModal(); });
+    $('topic-input').addEventListener('keydown', e => { if (e.key === 'Enter') confirmSave(); });
+
+    function toggleSaved(idx) {
+      const body = document.getElementById('saved-body-' + idx);
+      body.classList.toggle('open');
+    }
+
+    window.deleteSaved = (idx) => {
+      const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
+      list.splice(idx, 1);
+      localStorage.setItem('german_writings', JSON.stringify(list));
+      renderSaved();
+    };
+
     function renderSaved() {
       const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
-      $('saved-list').innerHTML = list.map(i => `<div class="card"><small>${i.date}</small><br>${i.text}</div>`).join('');
+      const container = $('saved-list');
+      if (!list.length) { container.innerHTML = ''; return; }
+      container.innerHTML = `<div style="font-weight:600; font-size:18px; margin:24px 0 8px;">📂 Bài đã lưu</div>` +
+        list.map((item, i) => `
+          <div class="saved-item">
+            <div class="saved-header" onclick="toggleSaved(${i})">
+              <span style="font-size:18px;">📄</span>
+              <span class="title">${item.topic || 'Không tên'}</span>
+              <span class="date">${item.date}</span>
+              <button class="del-btn" onclick="event.stopPropagation(); deleteSaved(${i})" title="Xóa">🗑</button>
+            </div>
+            <div class="saved-body" id="saved-body-${i}">${item.text}</div>
+          </div>`).join('');
     }
 
     window.onload = () => {
