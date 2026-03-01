@@ -141,9 +141,9 @@
 <body>
   <nav class="nav-bar">
     <div class="nav-content">
-      <button class="nav-item active" onclick="showPage(`verb`)">Verb</button>
-      <button class="nav-item" onclick="showPage(`grammar`)">Grammatik</button>
-      <button class="nav-item" onclick="showPage(`writing`)">Writing</button>
+      <button class="nav-item active" onclick="showPage('verb')">Verb</button>
+      <button class="nav-item" onclick="showPage('grammar')">Grammatik</button>
+      <button class="nav-item" onclick="showPage('writing')">Writing</button>
     </div>
   </nav>
 
@@ -219,11 +219,11 @@
     <!-- Grammar Page (Placeholder) -->
     <div id="grammar-page" class="page-section">
       <h1>Grammatik</h1>
-      <div class="subtitle">Wichtige Strukturen der deutschen Sprache.</div>
+      <div class="subtitle">Wichtige Strukturen của tiếng Đức.</div>
       <div class="card" style="text-align: center; padding: 60px 20px;">
         <div style="font-size: 48px; margin-bottom: 20px;"></div>
-        <h3>Grammatik-Modul wird bald verfügbar sein</h3>
-        <p style="color: #86868b;">Hier finden Sie bald Übungen zu Artikeln, Adjektivdeklination und mehr.</p>
+        <h3>Mô-đun ngữ pháp đang phát triển</h3>
+        <p style="color: #86868b;">Nơi lưu trữ các quy tắc và bài tập sắp tới.</p>
       </div>
     </div>
 
@@ -247,15 +247,26 @@
         </select>
       </div>
 
-      <textarea class="writing-area" placeholder="Start writing in German here..."></textarea>
-      <div class="writing-footer">
-        Klicken Sie auf "Prüfen" für eine Korrektur und eine Bewertung der Schwachpunkte.
-      </div>
+      <textarea class="writing-area" placeholder="Viết bài tiếng Đức của bạn ở đây..."></textarea>
       
       <div class="button-group" style="justify-content: center;">
-        <button class="primary" id="aiCorrectBtn">Mit AI korrigieren (Prompt kopieren)</button>
+        <button class="primary" id="aiCorrectBtn">Mit AI korrigieren (Sửa trực tiếp)</button>
         <button class="primary" id="saveWritingBtn" style="background: #34c759;">Speichern (Lưu bài)</button>
         <button class="secondary" id="clearWritingBtn">Löschen</button>
+      </div>
+
+      <div id="ai-result-card" class="card" style="display:none; border-left: 5px solid #0071e3; background: #f0f7ff;">
+        <span class="section-title">AI Feedback (Kết quả sửa lỗi)</span>
+        <div id="ai-loading" style="display:none; text-align:center; padding: 20px;">
+          <small>AI đang kiểm tra bài viết... (Vui lòng đợi 5-10 giây)</small>
+        </div>
+        <div id="ai-content" style="white-space: pre-wrap; font-size: 15px; color: #1d1d1f; line-height: 1.6;"></div>
+      </div>
+
+      <div class="card" style="background: #fbfbfd; border-style: dashed; padding: 15px;">
+        <label style="font-size: 11px;">Cấu hình AI (OpenAI API Key)</label>
+        <input type="password" id="openai-key" placeholder="sk-..." style="padding: 8px; font-size: 13px; margin-top: 5px; width: 100%; box-sizing: border-box;">
+        <div class="hint">Nhập API Key để AI sửa bài trực tiếp. Nếu không có Key, nút trên sẽ tự động Copy Prompt để bạn dán vào ChatGPT.</div>
       </div>
 
       <div id="saved-writings-container" style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 20px;">
@@ -268,260 +279,145 @@
   <script src="verbs.js"></script>
 <script>
 let DB = {};
-
-// --- Saved Writings Logic ---
-function loadSavedWritings() {
-  const writings = JSON.parse(localStorage.getItem('german_writings') || '[]');
-  const list = document.getElementById('saved-list');
-  list.innerHTML = writings.length ? '' : '<p style="color:#86868b; text-align:center">Keine gespeicherten Texte.</p>';
-  
-  writings.forEach((w, idx) => {
-    const div = document.createElement('div');
-    div.className = 'card';
-    div.style.padding = '20px';
-    div.style.marginBottom = '15px';
-    div.style.background = '#fbfbfd';
-    div.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 10px">
-        <div>
-          <b style="font-size: 16px">${escapeHtml(w.title)}</b><br>
-          <small style="color:#86868b">${w.date} | Level: ${w.level} | Topic: ${w.topic}</small>
-        </div>
-        <button onclick="deleteWriting(${idx})" style="background:none; border:none; color:#ff3b30; cursor:pointer; font-size:14px">Löschen</button>
-      </div>
-      <div style="white-space: pre-wrap; font-size: 15px; color: #333;">${escapeHtml(w.text)}</div>
-    `;
-    list.appendChild(div);
-  });
-}
-
-function deleteWriting(idx) {
-  if (!confirm("Bài này sẽ bị xóa?")) return;
-  const writings = JSON.parse(localStorage.getItem('german_writings') || '[]');
-  writings.splice(idx, 1);
-  localStorage.setItem('german_writings', JSON.stringify(writings));
-  loadSavedWritings();
-}
-
-document.getElementById('saveWritingBtn').addEventListener('click', () => {
-  const text = document.querySelector('.writing-area').value;
-  if (!text.trim()) {
-    alert("Nội dung trống!");
-    return;
-  }
-  
-  const title = prompt("Nhập tiêu đề hoặc tên bài viết:", `Bài viết ${new Date().toLocaleDateString()}`);
-  if (!title) return;
-
-  const newWriting = {
-    title: title,
-    text: text,
-    level: document.getElementById('writing-level').value,
-    topic: document.getElementById('writing-topic').value,
-    date: new Date().toLocaleString()
-  };
-
-  const writings = JSON.parse(localStorage.getItem('german_writings') || '[]');
-  writings.unshift(newWriting); // Add to beginning
-  localStorage.setItem('german_writings', JSON.stringify(writings));
-  loadSavedWritings();
-  alert("Đã lưu bài viết thành công!");
-});
-
-loadSavedWritings();
-// -----------------------------
-
-// --- AI Writing Logic ---
-document.getElementById('aiCorrectBtn').addEventListener('click', () => {
-  const level = document.getElementById('writing-level').value;
-  const topic = document.getElementById('writing-topic').value;
-  const text = document.querySelector('.writing-area').value;
-
-  if (!text.trim()) {
-    alert("Bitte schreiben Sie zuerst etwas!");
-    return;
-  }
-
-  const prompt = `Du bist một giáo viên tiếng Đức chuyên nghiệp. Hãy kiểm tra và sửa lỗi bài viết sau đây:
-Trình độ: ${level}
-Chủ đề: ${topic}
-Nội dung bài viết:
-"${text}"
-
-Yêu cầu:
-1. Sửa lỗi ngữ pháp và từ vựng.
-2. Giải thích ngắn gọn các lỗi sai bằng tiếng Việt.
-3. Đề xuất cách diễn đạt tự nhiên hơn (đúng trình độ ${level}).
-4. Đánh giá bài viết trên thang điểm 10.`;
-
-  navigator.clipboard.writeText(prompt).then(() => {
-    const btn = document.getElementById('aiCorrectBtn');
-    const originalText = btn.innerText;
-    btn.innerText = "✅ Prompt kopiert! (Dán vào ChatGPT)";
-    btn.style.background = "#34c759";
-    
-    setTimeout(() => {
-      btn.innerText = originalText;
-      btn.style.background = "";
-    }, 3000);
-  });
-});
-
-document.getElementById('clearWritingBtn').addEventListener('click', () => {
-  document.querySelector('.writing-area').value = "";
-});
-// ------------------------
+const $ = (id) => document.getElementById(id);
 
 function showPage(pageId) {
-  document.querySelectorAll(`.nav-item`).forEach(btn => {
-    btn.classList.remove(`active`);
-    if (btn.innerText.toLowerCase() === pageId) {
-      btn.classList.add(`active`);
-    }
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.innerText.toLowerCase() === pageId) btn.classList.add('active');
   });
-
-  document.querySelectorAll(`.page-section`).forEach(sec => {
-    sec.classList.remove(`active`);
-  });
-  const target = document.getElementById(pageId + `-page`);
-  if (target) target.classList.add(`active`);
+  document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+  const target = $(pageId + '-page');
+  if (target) target.classList.add('active');
 }
 
 function loadDB() {
   if (window.VERB_DB) {
     DB = window.VERB_DB;
     updateDbStatus();
-    return;
   }
 }
 
-const $ = (id) => document.getElementById(id);
-
 function norm(s) {
-  return (s ?? "")
-    .toString()
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") 
-    .replace(/ss/g, "ss")
-    .replace(/ß/g, "ss")
-    .replace(/\s+/g, " ");
-}
-
-function setModeUI() {
-  const mode = $(`mode`).value;
-  $(`formCommon`).style.display = (mode === "common") ? "" : "none";
-  $(`formRare`).style.display = (mode === "rare") ? "" : "none";
-  $(`result`).textContent = "Geben Sie ein Verb ein, um zu beginnen.";
-}
-
-$(`mode`).addEventListener("change", setModeUI);
-
-function renderLine(label, user, correct) {
-  const isCorrect = norm(user) === norm(correct);
-  const cls = isCorrect ? "ok" : "bad";
-  const icon = isCorrect ? "" : "";
-  return `
-    <div class="result-line ${cls}">
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span class="mono" style="width: 16px; flex-shrink: 0;">${icon}</span>
-        <b style="min-width: 40px;">${label}:</b>
-        <div style="flex-grow: 1;">
-          <span class="mono">${escapeHtml(user || "(leer)")}</span>
-          ${!isCorrect ? `<br><small style="color:#64748b">Richtig: </small><span class="mono ok">${escapeHtml(correct)}</span>` : ``}
-        </div>
-      </div>
-    </div>`;
-}
-
-function escapeHtml(str) {
-  return (str ?? "").replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[c]));
+  return (s ?? "").toString().trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ß/g, "ss").replace(/\s+/g, " ");
 }
 
 function updateDbStatus() {
   const count = Object.keys(DB).length;
-  $(`dbStatus`).textContent = `Datenbank: ${count} Verben`;
+  if ($('dbStatus')) $('dbStatus').textContent = `Datenbank: ${count} Verben`;
 }
 
-$(`submitBtn`).addEventListener("click", () => {
-  const verbKey = $(`verb`).value.trim().toLowerCase();
-  if (!verbKey) {
-    $(`result`).innerHTML = `<span class="bad">Bitte geben Sie zuerst den Infinitiv ein.</span>`;
-    return;
-  }
+function escapeHtml(str) {
+  return (str ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+}
 
+function renderLine(label, user, correct) {
+  const isCorrect = norm(user) === norm(correct);
+  const cls = isCorrect ? "ok" : "bad";
+  return `<div class="result-line ${cls}"><b style="min-width:40px;">${label}:</b> ${escapeHtml(user || "(leer)")}${!isCorrect ? `<br><small>Richtig: </small><span class="ok">${escapeHtml(correct)}</span>` : ''}</div>`;
+}
+
+// Verb Page Events
+$('mode').onchange = () => {
+  $('formCommon').style.display = $('mode').value === 'common' ? '' : 'none';
+  $('formRare').style.display = $('mode').value === 'rare' ? '' : 'none';
+};
+
+$('submitBtn').onclick = () => {
+  const verbKey = $('verb').value.trim().toLowerCase();
   const data = DB[verbKey];
-  if (!data) {
-    $(`result`).innerHTML = `
-      <div class="result-line bad"><b>Nicht gefunden:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>
-      <div class="hint">Bitte fügen Sie dieses Verb in die Datenbank ein.</div>`;
-    return;
-  }
-
-  const mode = $(`mode`).value;
-  let html = `<div style="margin-bottom: 12px" class="ok"><b>Ergebnis für:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>`;
-
-  if (mode === "common") {
-    html += `<span class="section-title">Präsens</span><div class="grid">`;
-    ["ich", "du", "er", "wir", "ihr", "sie"].forEach(p => {
-      html += renderLine(p, $(`c_p_${p}`).value, data.present[p]);
-    });
-    html += `</div><hr><span class="section-title">Perfekt</span><div class="grid">`;
-    html += renderLine("Hilfsverb", $(`c_aux`).value, data.aux);
-    html += renderLine("Partizip II", $(`c_part2`).value, data.part2);
-    html += `</div>`;
-  } else {
-    html += `<span class="section-title">Präteritum</span><div class="grid">`;
-    ["ich", "du", "er", "wir", "ihr", "sie"].forEach(p => {
-      html += renderLine(p, $(`r_${p}`).value, data.praet[p]);
-    });
-    html += `</div>`;
-  }
-
-  $(`result`).innerHTML = html;
-});
-
-$(`clearBtn`).addEventListener("click", () => {
-  const inputs = document.querySelectorAll(`#verb-page input`);
-  inputs.forEach(i => {
-    i.value = "";
-  });
-  $(`result`).textContent = "Geben Sie ein Verb ein, um zu beginnen.";
-});
-
-$(`fillExample`).addEventListener("click", () => {
-  const verbKey = $(`verb`).value.trim().toLowerCase();
-  if (!verbKey) {
-    alert("Bitte geben Sie zuerst den Infinitiv ein.");
-    return;
-  }
+  if (!data) { $('result').innerHTML = `<div class="bad">Verb "${verbKey}" không tìm thấy!</div>`; return; }
   
-  const data = DB[verbKey];
-  if (!data) {
-    alert("Verb in der Datenbank nicht gefunden.");
+  let html = `<div class="ok"><b>${verbKey}</b></div>`;
+  if ($('mode').value === 'common') {
+    ["ich", "du", "er", "wir", "ihr", "sie"].forEach(p => html += renderLine(p, $('c_p_' + p).value, data.present[p]));
+    html += '<hr>' + renderLine("Hilfsverb", $('c_aux').value, data.aux) + renderLine("Partizip II", $('c_part2').value, data.part2);
+  } else {
+    ["ich", "du", "er", "wir", "ihr", "sie"].forEach(p => html += renderLine(p, $('r_' + p).value, data.praet[p]));
+  }
+  $('result').innerHTML = html;
+};
+
+$('fillExample').onclick = () => {
+  const data = DB[$('verb').value.trim().toLowerCase()];
+  if (!data) return;
+  ["ich", "du", "er", "wir", "ihr", "sie"].forEach(p => { $('c_p_'+p).value = data.present[p]; $('r_'+p).value = data.praet[p]; });
+  $('c_aux').value = data.aux; $('c_part2').value = data.part2;
+};
+
+$('clearBtn').onclick = () => document.querySelectorAll('#verb-page input').forEach(i => i.value = "");
+
+// Writing Page Events
+$('aiCorrectBtn').onclick = async () => {
+  const apiKey = $('openai-key').value.trim();
+  const text = document.querySelector('.writing-area').value;
+  const level = $('writing-level').value;
+  const topic = $('writing-topic').value;
+
+  if (!text.trim()) { alert("Vui lòng nhập văn bản!"); return; }
+
+  if (!apiKey) {
+    const prompt = `Du bist một giáo viên tiếng Đức. Hãy sửa bài viết trình độ ${level} này: "${text}"...`;
+    navigator.clipboard.writeText(prompt);
+    alert("Đã Copy Prompt! Bạn hãy dán vào ChatGPT (do chưa có API Key).");
     return;
   }
 
-  $(`c_p_ich`).value = data.present.ich;
-  $(`c_p_du`).value = data.present.du;
-  $(`c_p_er`).value = data.present.er;
-  $(`c_p_wir`).value = data.present.wir;
-  $(`c_p_ihr`).value = data.present.ihr;
-  $(`c_p_sie`).value = data.present.sie;
-  $(`c_aux`).value = data.aux;
-  $(`c_part2`).value = data.part2;
-  $(`r_ich`).value = data.praet.ich;
-  $(`r_du`).value = data.praet.du;
-  $(`r_er`).value = data.praet.er;
-  $(`r_wir`).value = data.praet.wir;
-  $(`r_ihr`).value = data.praet.ihr;
-  $(`r_sie`).value = data.praet.sie;
-});
+  $('ai-result-card').style.display = 'block';
+  $('ai-loading').style.display = 'block';
+  $('ai-content').innerText = '';
+  localStorage.setItem('openai_api_key', apiKey);
 
-loadDB();
+  try {
+    const res = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}`},
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [{role:"system", content:"Giáo viên tiếng Đức chuyên sửa lỗi."}, {role:"user", content:`Sửa bài ${level}, chủ đề ${topic}: "${text}". Giải thích lỗi bằng tiếng Việt.`}]
+      })
+    });
+    const data = await res.json();
+    $('ai-content').innerText = data.choices[0].message.content;
+  } catch (err) { $('ai-content').innerText = "Lỗi: " + err.message; }
+  $('ai-loading').style.display = 'none';
+};
+
+$('saveWritingBtn').onclick = () => {
+  const text = document.querySelector('.writing-area').value;
+  if (!text) return;
+  const title = prompt("Tên bài viết:", "Bài mới " + new Date().toLocaleDateString());
+  if (!title) return;
+  const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
+  list.unshift({title, text, level: $('writing-level').value, topic: $('writing-topic').value, date: new Date().toLocaleString()});
+  localStorage.setItem('german_writings', JSON.stringify(list));
+  loadSavedWritings();
+};
+
+function loadSavedWritings() {
+  const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
+  $('saved-list').innerHTML = list.map((w, i) => `
+    <div class="card" style="background:#fbfbfd; padding:15px; margin-bottom:10px;">
+      <b>${escapeHtml(w.title)}</b> (${w.level}) <button onclick="deleteWriting(${i})" style="color:red; float:right; border:none; background:none; cursor:pointer;">Xóa</button><br>
+      <small>${w.date}</small><hr>
+      <div style="white-space:pre-wrap;">${escapeHtml(w.text)}</div>
+    </div>`).join('');
+}
+
+window.deleteWriting = (idx) => {
+  const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
+  list.splice(idx, 1);
+  localStorage.setItem('german_writings', JSON.stringify(list));
+  loadSavedWritings();
+};
+
+$('clearWritingBtn').onclick = () => document.querySelector('.writing-area').value = "";
+
+window.onload = () => {
+  loadDB();
+  loadSavedWritings();
+  if (localStorage.getItem('openai_api_key')) $('openai-key').value = localStorage.getItem('openai_api_key');
+};
 </script>
 </body>
 </html>
