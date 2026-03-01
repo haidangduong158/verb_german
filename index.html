@@ -220,9 +220,9 @@
       $('ai-content').innerText = '';
       localStorage.setItem('gemini_api_key', key);
 
-      // SỬA LỖI MODEL: Đổi sang gemini-1.5-flash-latest hoặc gemini-pro
+      // SỬA LỖI MODEL: Chuyển sang gemini-2.0-flash-exp (Phiên bản mới nhất)
       try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${key}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: "Hãy sửa bài viết tiếng Đức sau và giải thích bằng tiếng Việt:\n\n" + text }] }] })
