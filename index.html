@@ -16,22 +16,97 @@
       --nav-bg: rgba(255, 255, 255, 0.82);
     }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; font-size: 16px; -webkit-font-smoothing: antialiased; }
-    .nav-bar { display: flex; justify-content: center; background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 10px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
-    .nav-content { display: flex; background: #f1f1f1; border-radius: 12px; padding: 4px; gap: 4px; }
-    .nav-item { padding: 8px 20px; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 14px; transition: all 0.2s; border: none; background: transparent; color: #6e6e73; }
-    .nav-item.active { background: #ffffff; color: #000000; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    
+    /* Navigation */
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-content {
+      display: flex;
+      background: #f1f1f1;
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .nav-item {
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+      color: #6e6e73;
+    }
+    .nav-item.active {
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
     .main-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
     h1 { font-size: 40px; font-weight: 700; margin: 0 0 10px; color: #1d1d1f; text-align: center; }
     .subtitle { font-size: 17px; color: #6e6e73; text-align: center; margin-bottom: 40px; }
+
     .card { background: var(--card-bg); border-radius: 20px; padding: 30px; margin: 24px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    input, select, textarea { padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); font-size: 16px; background: #fbfbfd; width: 100%; box-sizing: border-box; }
-    .button-group { display: flex; gap: 12px; margin-top: 24px; justify-content: center; }
-    button.primary { background: #0071e3; color: #fff; padding: 12px 24px; border-radius: 980px; border: none; font-weight: 500; cursor: pointer; }
-    button.secondary { background: transparent; color: #0066cc; border: none; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    label { font-size: 12px; font-weight: 600; color: #86868b; text-transform: uppercase; letter-spacing: 0.02em; }
+    
+    input, select, textarea { 
+      padding: 14px 16px; 
+      border-radius: 12px; 
+      border: 1px solid var(--border); 
+      font-size: 16px; 
+      background: #fbfbfd;
+      transition: border-color 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    input:focus, textarea:focus { outline: none; border-color: #0066cc; }
+    
+    .button-group { display: flex; gap: 12px; margin-top: 24px; justify-content: center; flex-wrap: wrap; }
+    button.primary { 
+      background: #0071e3; 
+      color: #fff; 
+      padding: 12px 24px; 
+      border-radius: 980px; 
+      border: none; 
+      font-weight: 500;
+      font-size: 17px;
+      cursor: pointer;
+    }
+    button.secondary { 
+      background: transparent; 
+      color: #0066cc; 
+      font-size: 17px;
+      cursor: pointer;
+      border: none;
+      padding: 8px 16px;
+    }
+
     .page-section { display: none; }
     .page-section.active { display: block; }
-    .writing-area { height: 250px; resize: none; }
-    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; display: block; }
+
+    .writing-area { height: 300px; resize: none; margin-top: 10px; }
+    
+    .result-line { padding: 12px; border-radius: 10px; margin: 8px 0; background: #fbfbfd; border: 1px solid #f0f0f5; }
+    .result-line.ok { border-left: 4px solid var(--ok); }
+    .result-line.bad { border-left: 4px solid var(--bad); }
+    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; color: #1d1d1f; display: block; }
+    hr { border: 0; border-top: 1px solid var(--border); margin: 30px 0; }
+    .ok { color: var(--ok); }
+    .bad { color: var(--bad); }
   </style>
 </head>
 <body>
@@ -46,45 +121,70 @@
   <div class="main-container">
     <div id="verb-page" class="page-section active">
       <h1>Deutsch Verb Master</h1>
+      <div class="subtitle">Học động từ chuyên nghiệp.</div>
+
       <div class="card">
         <label>Infinitiv</label>
-        <input id="verb" placeholder="z. B. gehen...">
+        <input id="verb" placeholder="z. B. gehen, machen..." oninput="checkVerb()">
       </div>
-      <div id="result" class="card">Kết quả...</div>
+
+      <div id="inputsContainer" class="card">
+        <span class="section-title">Präsens & Perfekt</span>
+        <div class="grid">
+          <div class="form-group"><label>ich</label><input id="c_p_ich"></div>
+          <div class="form-group"><label>du</label><input id="c_p_du"></div>
+          <div class="form-group"><label>er/sie/es</label><input id="c_p_er"></div>
+          <div class="form-group"><label>wir</label><input id="c_p_wir"></div>
+          <div class="form-group"><label>ihr</label><input id="c_p_ihr"></div>
+          <div class="form-group"><label>sie/Sie</label><input id="c_p_sie"></div>
+        </div>
+        <hr>
+        <div class="grid">
+          <div class="form-group"><label>Hilfsverb</label><input id="c_aux" placeholder="haben/sein"></div>
+          <div class="form-group"><label>Partizip II</label><input id="c_part2"></div>
+        </div>
+        <div class="button-group">
+          <button class="primary" onclick="verifyVerb()">Prüfen</button>
+        </div>
+      </div>
+
+      <div id="result" class="card">Kết quả hiện ở đây...</div>
     </div>
 
     <div id="grammar-page" class="page-section">
       <h1>Grammatik</h1>
-      <div class="card">Đang cập nhật...</div>
+      <div class="card">Đang cập nhật nội dung...</div>
     </div>
 
     <div id="writing-page" class="page-section">
       <h1>Writing (Gemini AI)</h1>
-      <textarea class="writing-area" id="w-text" placeholder="Viết bài tiếng Đức ở đây..."></textarea>
+      <textarea class="writing-area" id="w-text" placeholder="Viết bài tiếng Đức tại đây..."></textarea>
       
       <div class="button-group">
-        <button class="primary" onclick="correctText()">Sửa bài trực tiếp</button>
+        <button class="primary" onclick="correctWithGemini()">Sửa bài trực tiếp</button>
         <button class="secondary" onclick="saveText()">Lưu bài</button>
       </div>
 
-      <div id="ai-result" class="card" style="display:none; background: #f0f7ff;">
+      <div id="ai-result" class="card" style="display:none; border-left: 5px solid #0071e3; background: #f0f7ff;">
         <span class="section-title">AI Feedback</span>
         <div id="ai-loading" style="display:none;">Đang xử lý...</div>
         <div id="ai-content" style="white-space: pre-wrap;"></div>
       </div>
 
-      <div class="card" style="background: #fff9db;">
+      <div class="card" style="background: #fff9db; border: 1px dashed #fcc419;">
         <label>🔐 Gemini API Key</label>
-        <input type="password" id="gemini-key" placeholder="Dán mã AIza... tại đây">
+        <input type="password" id="gemini-key" placeholder="Dán API Key (AI Studio) tại đây">
       </div>
 
-      <div id="saved-list" style="margin-top: 20px;"></div>
+      <div id="saved-list"></div>
     </div>
   </div>
 
   <script src="verbs.js"></script>
   <script>
     const $ = id => document.getElementById(id);
+    let DB = {};
+
     function showPage(p) {
       document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
@@ -92,7 +192,25 @@
       event.target.classList.add('active');
     }
 
-    async function correctText() {
+    function checkVerb() {
+      if (window.VERB_DB) DB = window.VERB_DB;
+    }
+
+    function verifyVerb() {
+      const verbKey = $('verb').value.trim().toLowerCase();
+      const data = DB[verbKey];
+      if (!data) return $('result').innerHTML = `<div class="bad">Không tìm thấy động từ "${verbKey}"</div>`;
+      
+      const norm = s => (s||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ß/g,"ss");
+      const render = (lab, user, cor) => `<div class="result-line ${norm(user)===norm(cor)?'ok':'bad'}"><b>${lab}:</b> ${user || "(leer)"} ${norm(user)!==norm(cor)? `<br><small class="ok">Đúng: ${cor}</small>` : ''}</div>`;
+      
+      let res = `<b>${verbKey}</b><br>`;
+      ["ich","du","er","wir","ihr","sie"].forEach(p => res += render(p, $('c_p_'+p).value, data.present[p]));
+      res += "<hr>" + render("Hilfsverb", $('c_aux').value, data.aux) + render("Partizip II", $('c_part2').value, data.part2);
+      $('result').innerHTML = res;
+    }
+
+    async function correctWithGemini() {
       const key = $('gemini-key').value.trim();
       const text = $('w-text').value.trim();
       if (!key || !text) return alert("Thiếu Key hoặc nội dung!");
@@ -102,8 +220,9 @@
       $('ai-content').innerText = '';
       localStorage.setItem('gemini_api_key', key);
 
+      // SỬA LỖI MODEL: Đổi sang gemini-1.5-flash-latest hoặc gemini-pro
       try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`, {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: "Hãy sửa bài viết tiếng Đức sau và giải thích bằng tiếng Việt:\n\n" + text }] }] })
@@ -119,8 +238,7 @@
     }
 
     function saveText() {
-      const text = $('w-text').value;
-      if (!text) return;
+      const text = $('w-text').value; if (!text) return;
       const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
       list.unshift({ text, date: new Date().toLocaleString() });
       localStorage.setItem('german_writings', JSON.stringify(list));
@@ -133,6 +251,7 @@
     }
 
     window.onload = () => {
+      if (window.VERB_DB) DB = window.VERB_DB;
       renderSaved();
       if (localStorage.getItem('gemini_api_key')) $('gemini-key').value = localStorage.getItem('gemini_api_key');
     };
