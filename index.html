@@ -114,24 +114,45 @@
     async function correctWithGemini() {
       const key = $('gemini-key').value.trim();
       const text = document.querySelector('.writing-area').value;
-      if (!text || !key) return alert("Thiếu bài viết hoặc API Key!");
+      
+      if (!text) return alert("Vui lòng nhập bài viết!");
+      if (!key) return alert("Vui lòng nhập API Key!");
 
       $('ai-result').style.display = 'block';
       $('ai-loading').style.display = 'block';
       $('ai-content').innerText = '';
       localStorage.setItem('gemini_api_key', key);
 
+      const prompt = `Du bist ein Deutschlehrer. Bitte korrigiere diesen Text auf Deutsch und erkläre die Fehler auf Vietnamesisch:\n\n"${text}"`;
+
       try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ contents: [{ parts: [{ text: `Hãy sửa bài viết tiếng Đức sau và giải thích bằng tiếng Việt:\n\n${text}` }] }] })
+        console.log("Calling Gemini API...");
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`, {
+          body: JSON.stringify({ 
+            contents: [{ parts: [{ text: prompt }] }] 
+          })
         });
+
+        if (!res.ok) {
+           const errData = await res.json();
+           throw new Error(errData.error?.message || "Lỗi mạng hoặc API Key không hợp lệ.");
+        }
+
         const data = await res.json();
-        if (data.error) throw new Error(data.error.message);
-        $('ai-content').innerText = data.candidates[0].content.parts[0].text;
+        console.log("API Success:", data);
+
+        if (data.candidates && data.candidates[0].content.parts[0].text) {
+          $('ai-content').innerText = data.candidates[0].content.parts[0].text;
+        } else {
+          throw new Error("API không trả về kết quả hợp lệ.");
+        }
       } catch (e) {
-        $('ai-content').innerText = "Lỗi: " + e.message;
+        console.error("Gemini Error:", e);
+        if (e.message.includes("Failed to fetch")) {
+           $('ai-content').innerText = "Lỗi: Không thể kết nối tới Google API. Vui lòng kiểm tra:\n1. Kết nối mạng (hoặc VPN nếu mạng chặn).\n2. API Key có đúng không.";
+        } else {
+           $('ai-content').innerText = "Lỗi: " + e.message;
+        }
       } finally {
         $('ai-loading').style.display = 'none';
       }
@@ -153,7 +174,8 @@
 
     window.onload = () => {
       renderSaved();
-      if (localStorage.getItem('gemini_api_key')) $('gemini-key').value = localStorage.getItem('gemini_api_key');
+      const savedKey = localStorage.getItem('gemini_api_key');
+      if (savedKey) $('gemini-key').value = savedKey;
     };
   </script>
 </body>
