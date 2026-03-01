@@ -32,6 +32,15 @@
     .page-section.active { display: block; }
     .writing-area { height: 250px; resize: none; }
     .section-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; display: block; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    label { font-size: 12px; font-weight: 600; color: #86868b; text-transform: uppercase; letter-spacing: 0.02em; }
+    hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
+    .result-line { padding: 12px; border-radius: 10px; margin: 8px 0; background: #fbfbfd; border: 1px solid #f0f0f5; }
+    .result-line.ok { border-left: 4px solid var(--ok); }
+    .result-line.bad { border-left: 4px solid var(--bad); }
+    .ok { color: var(--ok); }
+    .bad { color: var(--bad); }
   </style>
 </head>
 <body>
@@ -46,14 +55,38 @@
   <div class="main-container">
     <div id="verb-page" class="page-section active">
       <h1>Deutsch Verb Master</h1>
-      <div id="inputsContainer" class="card">
-         <label>Infinitiv</label>
-         <input id="verb" placeholder="z. B. gehen...">
-         <div class="button-group">
-            <button class="primary" onclick="verifyVerb()">Prüfen</button>
-         </div>
+      <div class="subtitle">Học động từ tiếng Đức chuyên nghiệp.</div>
+
+      <div class="card">
+        <div class="form-group">
+          <label>Infinitiv</label>
+          <input id="verb" placeholder="z. B. gehen, machen...">
+        </div>
       </div>
-      <div id="result" class="card">Kết quả...</div>
+
+      <div class="card">
+        <span class="section-title">Präsens</span>
+        <div class="grid">
+          <div class="form-group"><label>ich</label><input id="c_p_ich"></div>
+          <div class="form-group"><label>du</label><input id="c_p_du"></div>
+          <div class="form-group"><label>er/sie/es</label><input id="c_p_er"></div>
+          <div class="form-group"><label>wir</label><input id="c_p_wir"></div>
+          <div class="form-group"><label>ihr</label><input id="c_p_ihr"></div>
+          <div class="form-group"><label>sie/Sie</label><input id="c_p_sie"></div>
+        </div>
+        <hr>
+        <span class="section-title">Perfekt</span>
+        <div class="grid">
+          <div class="form-group"><label>Hilfsverb</label><input id="c_aux" placeholder="haben / sein"></div>
+          <div class="form-group"><label>Partizip II</label><input id="c_part2"></div>
+        </div>
+        <div class="button-group">
+          <button class="primary" onclick="verifyVerb()">Prüfen ✓</button>
+          <button class="secondary" onclick="clearVerb()">Leeren</button>
+        </div>
+      </div>
+
+      <div id="result" class="card">Nhập động từ và điền các ô để bắt đầu luyện tập.</div>
     </div>
 
     <div id="grammar-page" class="page-section">
@@ -134,11 +167,26 @@
     }
 
     function verifyVerb() {
-        if (!window.VERB_DB) return alert("Lỗi tải dữ liệu động từ!");
-        const v = $('verb').value.trim().toLowerCase();
-        const d = window.VERB_DB[v];
-        if (!d) return $('result').innerText = "Không tìm thấy!";
-        $('result').innerText = `Verb: ${v}\nPräsens: ${d.present.ich}, ${d.present.du}...\nPerfekt: ${d.aux} ${d.part2}`;
+        if (window.VERB_DB) DB = window.VERB_DB;
+        const verbKey = $('verb').value.trim().toLowerCase();
+        const data = DB[verbKey];
+        if (!data) return $('result').innerHTML = `<div class="bad">Không tìm thấy động từ "<b>${verbKey}</b>"!</div>`;
+
+        const norm = s => (s||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ß/g,"ss");
+        const render = (lab, user, cor) => {
+          const ok = norm(user) === norm(cor);
+          return `<div class="result-line ${ok?'ok':'bad'}"><b>${lab}:</b> ${user||"(leer)"} ${!ok?`<br><small>Richtig: <span class="ok">${cor}</span></small>`:''}`;
+        };
+
+        let html = `<div style="font-weight:600; margin-bottom:10px;">${verbKey}</div>`;
+        ["ich","du","er","wir","ihr","sie"].forEach(p => html += render(p, $('c_p_'+p).value, data.present[p]));
+        html += "<hr>" + render("Hilfsverb", $('c_aux').value, data.aux) + render("Partizip II", $('c_part2').value, data.part2);
+        $('result').innerHTML = html;
+    }
+
+    function clearVerb() {
+        ["c_p_ich","c_p_du","c_p_er","c_p_wir","c_p_ihr","c_p_sie","c_aux","c_part2"].forEach(id => $(id).value = "");
+        $('result').innerText = "Nhập động từ và điền các ô để bắt đầu luyện tập.";
     }
 
     function saveText() {
