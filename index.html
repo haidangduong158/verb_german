@@ -1,138 +1,289 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Deutsch Verbkonjugation prüfen</title>
+  <title>Deutsch Verb Master</title>
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --bg: #f8fafc;
+      --primary: #000000;
+      --bg: #f5f5f7;
       --card-bg: #ffffff;
-      --text: #1e293b;
-      --border: #e2e8f0;
-      --ok: #059669;
-      --bad: #dc2626;
+      --text: #1d1d1f;
+      --border: #d2d2d7;
+      --ok: #34c759;
+      --bad: #ff3b30;
+      --nav-bg: rgba(255, 255, 255, 0.82);
     }
-    body { font-family: 'Inter', system-ui, sans-serif; margin: 24px; background: var(--bg); color: var(--text); line-height: 1.5; font-size: 16px; }
-    h1 { font-size: 28px; font-weight: 700; margin: 0 0 20px; color: #0f172a; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .form-group { display: flex; flex-direction: column; gap: 4px; }
-    label { font-size: 14px; font-weight: 600; color: #64748b; }
-    input, select, button { padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); font-size: 16px; transition: all 0.2s; }
-    input:focus { outline: none; border-color: var(--primary); ring: 2px var(--primary); }
-    button { cursor: pointer; border: 0; background: var(--primary); color: #fff; font-weight: 600; }
-    button:hover { background: var(--primary-hover); }
-    button.secondary { background: #f1f5f9; color: #475569; border: 1px solid var(--border); }
-    button.secondary:hover { background: #e2e8f0; }
-    .row { display: flex; gap: 12px; flex-wrap: wrap; }
-    .ok { color: var(--ok); font-weight: 500; }
-    .bad { color: var(--bad); font-weight: 500; }
-    .hint { font-size: 13px; color: #64748b; margin-top: 8px; }
-    .mono { font-family: 'Fira Code', ui-monospace, monospace; font-size: 0.9em; }
-    .result-line { padding: 8px; border-radius: 6px; margin: 4px 0; background: #f8fafc; border-left: 4px solid transparent; }
-    .result-line.ok { border-left-color: var(--ok); }
-    .result-line.bad { border-left-color: var(--bad); }
-    hr { border: 0; border-top: 1px solid var(--border); margin: 20px 0; }
-    .section-title { font-weight: 700; margin-bottom: 12px; display: block; color: #334155; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    
+    /* Navigation */
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-content {
+      display: flex;
+      background: #f1f1f1;
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .nav-item {
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+      color: #6e6e73;
+    }
+    .nav-item.active {
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .nav-item:hover:not(.active) {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .main-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    h1 { font-size: 40px; font-weight: 700; margin: 0 0 10px; color: #1d1d1f; text-align: center; }
+    .subtitle { font-size: 17px; color: #6e6e73; text-align: center; margin-bottom: 40px; }
+
+    .card { background: var(--card-bg); border-radius: 20px; padding: 30px; margin: 24px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    label { font-size: 12px; font-weight: 600; color: #86868b; text-transform: uppercase; letter-spacing: 0.02em; }
+    
+    input, select { 
+      padding: 14px 16px; 
+      border-radius: 12px; 
+      border: 1px solid var(--border); 
+      font-size: 16px; 
+      background: #fbfbfd;
+      transition: border-color 0.2s;
+    }
+    input:focus { outline: none; border-color: #0066cc; }
+    
+    .button-group { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    button.primary { 
+      background: #0071e3; 
+      color: #fff; 
+      padding: 12px 24px; 
+      border-radius: 980px; 
+      border: none; 
+      font-weight: 500;
+      font-size: 17px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button.primary:hover { background: #0077ed; }
+    
+    button.secondary { 
+      background: transparent; 
+      color: #0066cc; 
+      font-size: 17px;
+      cursor: pointer;
+      border: none;
+      padding: 8px 16px;
+    }
+    button.secondary:hover { text-decoration: underline; }
+
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* Writing Section Styles */
+    .writing-area {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 20px;
+      font-size: 18px;
+      resize: none;
+      font-family: inherit;
+      box-sizing: border-box;
+      margin-top: 10px;
+    }
+    .writing-footer {
+      background: #f5f5f7;
+      padding: 15px 20px;
+      border-radius: 0 0 12px 12px;
+      font-size: 14px;
+      color: #6e6e73;
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+    
+    /* Result styles */
+    .result-line { padding: 12px; border-radius: 10px; margin: 8px 0; background: #fbfbfd; border: 1px solid #f0f0f5; }
+    .result-line.ok { border-left: 4px solid var(--ok); }
+    .result-line.bad { border-left: 4px solid var(--bad); }
+    .mono { font-family: "SF Mono", "Fira Code", ui-monospace, monospace; }
+    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; color: #1d1d1f; }
+    hr { border: 0; border-top: 1px solid var(--border); margin: 30px 0; }
+    .ok { color: var(--ok); }
+    .bad { color: var(--bad); }
+    .hint { font-size: 13px; color: #86868b; margin-top: 8px; }
   </style>
 </head>
 <body>
-  <h1>🇩🇪 German Verb Master</h1>
-  <div style="font-size: 14px; color: #64748b; margin-bottom: 20px;">Deutsch Verben professionell lernen.</div>
+  <nav class="nav-bar">
+    <div class="nav-content">
+      <button class="nav-item active" onclick="showPage(`verb`)">Verb</button>
+      <button class="nav-item" onclick="showPage(`grammar`)">Grammatik</button>
+      <button class="nav-item" onclick="showPage(`writing`)">Writing</button>
+    </div>
+  </nav>
 
-  <div class="card">
-    <div class="row">
-      <div style="flex:2; min-width:240px" class="form-group">
-        <label>Infinitiv</label>
-        <input id="verb" placeholder="z. B. gehen, machen..." autocomplete="off">
+  <div class="main-container">
+    <div id="verb-page" class="page-section active">
+      <h1>Deutsch Verb Master</h1>
+      <div class="subtitle">Deutsch Verben professionell lernen.</div>
+
+      <div class="card">
+        <div style="display:flex; gap:16px; flex-wrap: wrap;">
+          <div style="flex:2; min-width: 250px;" class="form-group">
+            <label>Infinitiv</label>
+            <input id="verb" placeholder="z. B. gehen, machen..." autocomplete="off">
+          </div>
+          <div style="flex:1; min-width: 200px;" class="form-group">
+            <label>Übungsmodus</label>
+            <select id="mode">
+              <option value="common"> Gebräuchlich</option>
+              <option value="rare"> Präteritum</option>
+            </select>
+          </div>
+        </div>
+        <div class="hint">Automatische Erkennung ohne Umlaute (a, o, u, ss).</div>
       </div>
-      <div style="flex:1; min-width:220px" class="form-group">
-        <label>Übungsmodus</label>
-        <select id="mode">
-          <option value="common">🔥 Gebräuchlich: Präsens + Perfekt</option>
-          <option value="rare">📚 Fortgeschritten: Präteritum (vollständig)</option>
+
+      <div id="inputsContainer">
+        <div class="card" id="formCommon">
+          <span class="section-title">Präsens</span>
+          <div class="grid">
+            <div class="form-group"><label>ich</label><input id="c_p_ich"></div>
+            <div class="form-group"><label>du</label><input id="c_p_du"></div>
+            <div class="form-group"><label>er/sie/es</label><input id="c_p_er"></div>
+            <div class="form-group"><label>wir</label><input id="c_p_wir"></div>
+            <div class="form-group"><label>ihr</label><input id="c_p_ihr"></div>
+            <div class="form-group"><label>sie/Sie</label><input id="c_p_sie"></div>
+          </div>
+          <hr>
+          <span class="section-title">Perfekt</span>
+          <div class="grid">
+            <div class="form-group"><label>Hilfsverb</label><input id="c_aux" placeholder="haben/sein"></div>
+            <div class="form-group"><label>Partizip II</label><input id="c_part2"></div>
+          </div>
+        </div>
+
+        <div class="card" id="formRare" style="display:none">
+          <span class="section-title">Präteritum</span>
+          <div class="grid">
+            <div class="form-group"><label>ich</label><input id="r_ich"></div>
+            <div class="form-group"><label>du</label><input id="r_du"></div>
+            <div class="form-group"><label>er/sie/es</label><input id="r_er"></div>
+            <div class="form-group"><label>wir</label><input id="r_wir"></div>
+            <div class="form-group"><label>ihr</label><input id="r_ihr"></div>
+            <div class="form-group"><label>sie/Sie</label><input id="r_sie"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button class="primary" id="submitBtn">Prüfen</button>
+        <button class="secondary" id="fillExample">Lösung anzeigen</button>
+        <button class="secondary" id="clearBtn">Leeren</button>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 20px">
+          <span class="section-title" style="margin:0">Ergebnis</span>
+          <span class="mono" id="dbStatus" style="font-size:12px; color:#86868b">Loading DB...</span>
+        </div>
+        <div id="result" class="result">Geben Sie ein Verb ein, um zu beginnen.</div>
+      </div>
+    </div>
+
+    <!-- Grammar Page (Placeholder) -->
+    <div id="grammar-page" class="page-section">
+      <h1>Grammatik</h1>
+      <div class="subtitle">Wichtige Strukturen der deutschen Sprache.</div>
+      <div class="card" style="text-align: center; padding: 60px 20px;">
+        <div style="font-size: 48px; margin-bottom: 20px;"></div>
+        <h3>Grammatik-Modul wird bald verfügbar sein</h3>
+        <p style="color: #86868b;">Hier finden Sie bald Übungen zu Artikeln, Adjektivdeklination und mehr.</p>
+      </div>
+    </div>
+
+    <!-- Writing Page -->
+    <div id="writing-page" class="page-section">
+      <h1>Writing</h1>
+      <div class="subtitle">Schreiben Sie Ihre Texte auf Deutsch.</div>
+      
+      <div style="margin-bottom: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <select id="writing-level" style="padding: 6px 12px; border-radius: 8px; font-size: 14px;">
+          <option>A1</option>
+          <option>A2</option>
+          <option selected>B1</option>
+          <option>B2</option>
+        </select>
+        <select id="writing-topic" style="padding: 6px 12px; border-radius: 8px; font-size: 14px;">
+          <option>E-Mail an einen Freund</option>
+          <option>Bewerbung</option>
+          <option>Beschwerde</option>
+          <option>Meinung äußern</option>
         </select>
       </div>
-    </div>
-    <div class="hint">Automatische Erkennung ohne Umlaute (a, o, u, ss).</div>
-  </div>
 
-  <div id="inputsContainer">
-    <!-- Cấu trúc chung cho các chế độ -->
-    <div class="card" id="formCommon">
-      <span class="section-title">Präsens</span>
-      <div class="grid">
-        <div class="form-group"><label>ich</label><input id="c_p_ich"></div>
-        <div class="form-group"><label>du</label><input id="c_p_du"></div>
-        <div class="form-group"><label>er/sie/es</label><input id="c_p_er"></div>
-        <div class="form-group"><label>wir</label><input id="c_p_wir"></div>
-        <div class="form-group"><label>ihr</label><input id="c_p_ihr"></div>
-        <div class="form-group"><label>sie/Sie</label><input id="c_p_sie"></div>
+      <textarea class="writing-area" placeholder="Start writing in German here..."></textarea>
+      <div class="writing-footer">
+        Klicken Sie auf "Prüfen" für eine Korrektur und eine Bewertung der Schwachpunkte.
       </div>
-      <hr>
-      <span class="section-title">Perfekt</span>
-      <div class="grid">
-        <div class="form-group" style="grid-column: 1 / span 1"><label>Hilfsverb</label><input id="c_aux" placeholder="haben/sein"></div>
-        <div class="form-group" style="grid-column: 2 / -1"><label>Partizip II</label><input id="c_part2"></div>
+      
+      <div class="button-group" style="justify-content: center;">
+        <button class="primary" disabled style="opacity: 0.5; cursor: not-allowed;">Correct (Coming Soon)</button>
+        <button class="secondary" disabled style="opacity: 0.5; cursor: not-allowed;">Weak Points</button>
       </div>
     </div>
-
-    <div class="card" id="formRare" style="display:none">
-      <span class="section-title">Präteritum</span>
-      <div class="grid">
-        <div class="form-group"><label>ich</label><input id="r_ich"></div>
-        <div class="form-group"><label>du</label><input id="r_du"></div>
-        <div class="form-group"><label>er/sie/es</label><input id="r_er"></div>
-        <div class="form-group"><label>wir</label><input id="r_wir"></div>
-        <div class="form-group"><label>ihr</label><input id="r_ihr"></div>
-        <div class="form-group"><label>sie/Sie</label><input id="r_sie"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <button id="submitBtn">Prüfen</button>
-    <button class="secondary" id="clearBtn">Zurücksetzen</button>
-    <button class="secondary" id="fillExample">Lösung anzeigen</button>
-  </div>
-
-  <div class="card">
-    <div class="row" style="justify-content:space-between;align-items:center; margin-bottom: 12px">
-      <b style="font-size: 18px">Ergebnis</b>
-      <span class="small mono" id="dbStatus">Loading DB...</span>
-    </div>
-    <div id="result" class="result">Geben Sie ein Verb ein, um zu beginnen.</div>
   </div>
 
   <script src="verbs.js"></script>
 <script>
 let DB = {};
 
-/**
- * Datenbank laden
- */
+function showPage(pageId) {
+  document.querySelectorAll(`.nav-item`).forEach(btn => {
+    btn.classList.remove(`active`);
+    if (btn.innerText.toLowerCase() === pageId) {
+      btn.classList.add(`active`);
+    }
+  });
+
+  document.querySelectorAll(`.page-section`).forEach(sec => {
+    sec.classList.remove(`active`);
+  });
+  const target = document.getElementById(pageId + `-page`);
+  if (target) target.classList.add(`active`);
+}
+
 function loadDB() {
   if (window.VERB_DB) {
     DB = window.VERB_DB;
     updateDbStatus();
     return;
   }
-  
-  // Fallback-Skript für Fetch
-  fetch('verbs.json')
-    .then(r => r.json())
-    .then(data => {
-      DB = data;
-      updateDbStatus();
-    })
-    .catch(err => {
-      console.error(err);
-      $("dbStatus").innerHTML = `<span class="bad">DB-Fehler!</span>`;
-      $("result").innerHTML = `<div class="bad">Datei <b>verbs.js</b> oder <b>verbs.json</b> nicht gefunden.</div>`;
-    });
 }
 
 const $ = (id) => document.getElementById(id);
@@ -143,24 +294,25 @@ function norm(s) {
     .trim()
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // Khử dấu ä -> a, ö -> o...
+    .replace(/[\u0300-\u036f]/g, "") 
+    .replace(/ss/g, "ss")
     .replace(/ß/g, "ss")
     .replace(/\s+/g, " ");
 }
 
 function setModeUI() {
-  const mode = $("mode").value;
-  $("formCommon").style.display = (mode === "common") ? "" : "none";
-  $("formRare").style.display = (mode === "rare") ? "" : "none";
-  $("result").textContent = "Geben Sie ein Verb ein, um zu beginnen.";
+  const mode = $(`mode`).value;
+  $(`formCommon`).style.display = (mode === "common") ? "" : "none";
+  $(`formRare`).style.display = (mode === "rare") ? "" : "none";
+  $(`result`).textContent = "Geben Sie ein Verb ein, um zu beginnen.";
 }
 
-$("mode").addEventListener("change", setModeUI);
+$(`mode`).addEventListener("change", setModeUI);
 
 function renderLine(label, user, correct) {
   const isCorrect = norm(user) === norm(correct);
   const cls = isCorrect ? "ok" : "bad";
-  const icon = isCorrect ? "✓" : "✗";
+  const icon = isCorrect ? "" : "";
   return `
     <div class="result-line ${cls}">
       <div style="display: flex; align-items: center; gap: 8px;">
@@ -168,7 +320,7 @@ function renderLine(label, user, correct) {
         <b style="min-width: 40px;">${label}:</b>
         <div style="flex-grow: 1;">
           <span class="mono">${escapeHtml(user || "(leer)")}</span>
-          ${!isCorrect ? `<br><small style="color:#64748b">Richtig: </small><span class="mono ok">${escapeHtml(correct)}</span>` : ''}
+          ${!isCorrect ? `<br><small style="color:#64748b">Richtig: </small><span class="mono ok">${escapeHtml(correct)}</span>` : ``}
         </div>
       </div>
     </div>`;
@@ -182,25 +334,25 @@ function escapeHtml(str) {
 
 function updateDbStatus() {
   const count = Object.keys(DB).length;
-  $("dbStatus").textContent = `Datenbank: ${count} Verben`;
+  $(`dbStatus`).textContent = `Datenbank: ${count} Verben`;
 }
 
-$("submitBtn").addEventListener("click", () => {
-  const verbKey = $("verb").value.trim().toLowerCase();
+$(`submitBtn`).addEventListener("click", () => {
+  const verbKey = $(`verb`).value.trim().toLowerCase();
   if (!verbKey) {
-    $("result").innerHTML = `<span class="bad">Bitte geben Sie zuerst den Infinitiv ein.</span>`;
+    $(`result`).innerHTML = `<span class="bad">Bitte geben Sie zuerst den Infinitiv ein.</span>`;
     return;
   }
 
   const data = DB[verbKey];
   if (!data) {
-    $("result").innerHTML = `
+    $(`result`).innerHTML = `
       <div class="result-line bad"><b>Nicht gefunden:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>
-      <div class="hint">Bitte fügen Sie dieses Verb in die Datei <span class="mono">verbs.js</span> ein.</div>`;
+      <div class="hint">Bitte fügen Sie dieses Verb in die Datenbank ein.</div>`;
     return;
   }
 
-  const mode = $("mode").value;
+  const mode = $(`mode`).value;
   let html = `<div style="margin-bottom: 12px" class="ok"><b>Ergebnis für:</b> <span class="mono">${escapeHtml(verbKey)}</span></div>`;
 
   if (mode === "common") {
@@ -209,8 +361,8 @@ $("submitBtn").addEventListener("click", () => {
       html += renderLine(p, $(`c_p_${p}`).value, data.present[p]);
     });
     html += `</div><hr><span class="section-title">Perfekt</span><div class="grid">`;
-    html += renderLine("Hilfsverb", $("c_aux").value, data.aux);
-    html += renderLine("Partizip II", $("c_part2").value, data.part2);
+    html += renderLine("Hilfsverb", $(`c_aux`).value, data.aux);
+    html += renderLine("Partizip II", $(`c_part2`).value, data.part2);
     html += `</div>`;
   } else {
     html += `<span class="section-title">Präteritum</span><div class="grid">`;
@@ -220,19 +372,19 @@ $("submitBtn").addEventListener("click", () => {
     html += `</div>`;
   }
 
-  $("result").innerHTML = html;
+  $(`result`).innerHTML = html;
 });
 
-$("clearBtn").addEventListener("click", () => {
-  const inputs = document.querySelectorAll('input');
+$(`clearBtn`).addEventListener("click", () => {
+  const inputs = document.querySelectorAll(`#verb-page input`);
   inputs.forEach(i => {
-    if (i.id !== "verb") i.value = "";
+    i.value = "";
   });
-  $("result").textContent = "Geben Sie ein Verb ein, um zu beginnen.";
+  $(`result`).textContent = "Geben Sie ein Verb ein, um zu beginnen.";
 });
 
-$("fillExample").addEventListener("click", () => {
-  const verbKey = $("verb").value.trim().toLowerCase();
+$(`fillExample`).addEventListener("click", () => {
+  const verbKey = $(`verb`).value.trim().toLowerCase();
   if (!verbKey) {
     alert("Bitte geben Sie zuerst den Infinitiv ein.");
     return;
@@ -244,23 +396,20 @@ $("fillExample").addEventListener("click", () => {
     return;
   }
 
-  // Präsens & Perfekt ausfüllen
-  $("c_p_ich").value = data.present.ich;
-  $("c_p_du").value = data.present.du;
-  $("c_p_er").value = data.present.er;
-  $("c_p_wir").value = data.present.wir;
-  $("c_p_ihr").value = data.present.ihr;
-  $("c_p_sie").value = data.present.sie;
-  $("c_aux").value = data.aux;
-  $("c_part2").value = data.part2;
-
-  // Präteritum ausfüllen
-  $("r_ich").value = data.praet.ich;
-  $("r_du").value = data.praet.du;
-  $("r_er").value = data.praet.er;
-  $("r_wir").value = data.praet.wir;
-  $("r_ihr").value = data.praet.ihr;
-  $("r_sie").value = data.praet.sie;
+  $(`c_p_ich`).value = data.present.ich;
+  $(`c_p_du`).value = data.present.du;
+  $(`c_p_er`).value = data.present.er;
+  $(`c_p_wir`).value = data.present.wir;
+  $(`c_p_ihr`).value = data.present.ihr;
+  $(`c_p_sie`).value = data.present.sie;
+  $(`c_aux`).value = data.aux;
+  $(`c_part2`).value = data.part2;
+  $(`r_ich`).value = data.praet.ich;
+  $(`r_du`).value = data.praet.du;
+  $(`r_er`).value = data.praet.er;
+  $(`r_wir`).value = data.praet.wir;
+  $(`r_ihr`).value = data.praet.ihr;
+  $(`r_sie`).value = data.praet.sie;
 });
 
 loadDB();

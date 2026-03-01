@@ -9539,24 +9539,24 @@ window.VERB_DB = {
         "part2": "geachtet",
         "aux": "haben"
     },
-    "amÃ¼sieren": {
+    "amüsieren": {
         "present": {
-            "ich": "amÃ¼siere",
-            "du": "amÃ¼sierst",
-            "er": "amÃ¼siert",
-            "wir": "amÃ¼sieren",
-            "ihr": "amÃ¼siert",
-            "sie": "amÃ¼sieren"
+            "ich": "amüsiere",
+            "du": "amüsierst",
+            "er": "amüsiert",
+            "wir": "amüsieren",
+            "ihr": "amüsiert",
+            "sie": "amüsieren"
         },
         "praet": {
-            "ich": "amÃ¼sierte",
-            "du": "amÃ¼siertest",
-            "er": "amÃ¼sierte",
-            "wir": "amÃ¼sierten",
-            "ihr": "amÃ¼siertet",
-            "sie": "amÃ¼sierten"
+            "ich": "amüsierte",
+            "du": "amüsiertest",
+            "er": "amüsierte",
+            "wir": "amüsierten",
+            "ihr": "amüsiertet",
+            "sie": "amüsierten"
         },
-        "part2": "amÃ¼siert",
+        "part2": "amüsiert",
         "aux": "haben"
     },
     "anbauen": {
@@ -9662,8 +9662,8 @@ window.VERB_DB = {
     "anhalten": {
         "present": {
             "ich": "halte an",
-            "du": "hÃ¤ltst an",
-            "er": "hÃ¤lt an",
+            "du": "hältst an",
+            "er": "hält an",
             "wir": "halten an",
             "ihr": "haltet an",
             "sie": "halten an"
@@ -9679,24 +9679,24 @@ window.VERB_DB = {
         "part2": "angehalten",
         "aux": "haben"
     },
-    "anhÃ¤ngen": {
+    "anhängen": {
         "present": {
-            "ich": "hÃ¤nge an",
-            "du": "hÃ¤ngst an",
-            "er": "hÃ¤ngt an",
-            "wir": "hÃ¤ngen an",
-            "ihr": "hÃ¤ngt an",
-            "sie": "hÃ¤ngen an"
+            "ich": "hänge an",
+            "du": "hängst an",
+            "er": "hängt an",
+            "wir": "hängen an",
+            "ihr": "hängt an",
+            "sie": "hängen an"
         },
         "praet": {
-            "ich": "hÃ¤ngte an",
-            "du": "hÃ¤ngtest an",
-            "er": "hÃ¤ngte an",
-            "wir": "hÃ¤ngten an",
-            "ihr": "hÃ¤ngtet an",
-            "sie": "hÃ¤ngten an"
+            "ich": "hängte an",
+            "du": "hängtest an",
+            "er": "hängte an",
+            "wir": "hängten an",
+            "ihr": "hängtet an",
+            "sie": "hängten an"
         },
-        "part2": "angehÃ¤ngt",
+        "part2": "angehängt",
         "aux": "haben"
     },
     "ankommen": {
@@ -9719,24 +9719,24 @@ window.VERB_DB = {
         "part2": "angekommen",
         "aux": "sein"
     },
-    "anlÃ¤cheln": {
+    "anlächeln": {
         "present": {
-            "ich": "lÃ¤chle an",
-            "du": "lÃ¤chelst an",
-            "er": "lÃ¤chelt an",
-            "wir": "lÃ¤cheln an",
-            "ihr": "lÃ¤chelt an",
-            "sie": "lÃ¤cheln an"
+            "ich": "lächle an",
+            "du": "lächelst an",
+            "er": "lächelt an",
+            "wir": "lächeln an",
+            "ihr": "lächelt an",
+            "sie": "lächeln an"
         },
         "praet": {
-            "ich": "lÃ¤chelte an",
-            "du": "lÃ¤cheltest an",
-            "er": "lÃ¤chelte an",
-            "wir": "lÃ¤chelten an",
-            "ihr": "lÃ¤cheltet an",
-            "sie": "lÃ¤chelten an"
+            "ich": "lächelte an",
+            "du": "lächeltest an",
+            "er": "lächelte an",
+            "wir": "lächelten an",
+            "ihr": "lächeltet an",
+            "sie": "lächelten an"
         },
-        "part2": "angelÃ¤chelt",
+        "part2": "angelächelt",
         "aux": "haben"
     },
     "anlegen": {
@@ -9879,14 +9879,14 @@ window.VERB_DB = {
         "part2": "angeschaltet",
         "aux": "haben"
     },
-    "anschlieÃŸen": {
+    "anschließen": {
         "present": {
-            "ich": "schlieÃŸe an",
-            "du": "schlieÃŸt an",
-            "er": "schlieÃŸt an",
-            "wir": "schlieÃŸen an",
-            "ihr": "schlieÃŸt an",
-            "sie": "schlieÃŸen an"
+            "ich": "schließe an",
+            "du": "schließt an",
+            "er": "schließt an",
+            "wir": "schließen an",
+            "ihr": "schließt an",
+            "sie": "schließen an"
         },
         "praet": {
             "ich": "schloss an",
@@ -10022,8 +10022,8 @@ window.VERB_DB = {
     "auffallen": {
         "present": {
             "ich": "falle auf",
-            "du": "fÃ¤llst auf",
-            "er": "fÃ¤llt auf",
+            "du": "fällst auf",
+            "er": "fällt auf",
             "wir": "fallen auf",
             "ihr": "fallt auf",
             "sie": "fallen auf"
@@ -10082,8 +10082,8 @@ window.VERB_DB = {
     "aufhalten": {
         "present": {
             "ich": "halte auf",
-            "du": "hÃ¤ltst auf",
-            "er": "hÃ¤lt auf",
+            "du": "hältst auf",
+            "er": "hält auf",
             "wir": "halten auf",
             "ihr": "haltet auf",
             "sie": "halten auf"
@@ -10119,24 +10119,24 @@ window.VERB_DB = {
         "part2": "aufgehoben",
         "aux": "haben"
     },
-    "aufklÃ¤ren": {
+    "aufklären": {
         "present": {
-            "ich": "klÃ¤re auf",
-            "du": "klÃ¤rst auf",
-            "er": "klÃ¤rt auf",
-            "wir": "klÃ¤ren auf",
-            "ihr": "klÃ¤rt auf",
-            "sie": "klÃ¤ren auf"
+            "ich": "kläre auf",
+            "du": "klärst auf",
+            "er": "klärt auf",
+            "wir": "klären auf",
+            "ihr": "klärt auf",
+            "sie": "klären auf"
         },
         "praet": {
-            "ich": "klÃ¤rte auf",
-            "du": "klÃ¤rtest auf",
-            "er": "klÃ¤rte auf",
-            "wir": "klÃ¤rten auf",
-            "ihr": "klÃ¤rtet auf",
-            "sie": "klÃ¤rten auf"
+            "ich": "klärte auf",
+            "du": "klärtest auf",
+            "er": "klärte auf",
+            "wir": "klärten auf",
+            "ihr": "klärtet auf",
+            "sie": "klärten auf"
         },
-        "part2": "aufgeklÃ¤rt",
+        "part2": "aufgeklärt",
         "aux": "haben"
     },
     "auflegen": {
@@ -10159,24 +10159,24 @@ window.VERB_DB = {
         "part2": "aufgelegt",
         "aux": "haben"
     },
-    "auflÃ¶sen": {
+    "auflösen": {
         "present": {
-            "ich": "lÃ¶se auf",
-            "du": "lÃ¶st auf",
-            "er": "lÃ¶st auf",
-            "wir": "lÃ¶sen auf",
-            "ihr": "lÃ¶st auf",
-            "sie": "lÃ¶sen auf"
+            "ich": "löse auf",
+            "du": "löst auf",
+            "er": "löst auf",
+            "wir": "lösen auf",
+            "ihr": "löst auf",
+            "sie": "lösen auf"
         },
         "praet": {
-            "ich": "lÃ¶ste auf",
-            "du": "lÃ¶stest auf",
-            "er": "lÃ¶ste auf",
-            "wir": "lÃ¶sten auf",
-            "ihr": "lÃ¶stet auf",
-            "sie": "lÃ¶sten auf"
+            "ich": "löste auf",
+            "du": "löstest auf",
+            "er": "löste auf",
+            "wir": "lösten auf",
+            "ihr": "löstet auf",
+            "sie": "lösten auf"
         },
-        "part2": "aufgelÃ¶st",
+        "part2": "aufgelöst",
         "aux": "haben"
     },
     "aufmachen": {
@@ -10239,24 +10239,24 @@ window.VERB_DB = {
         "part2": "aufgepasst",
         "aux": "haben"
     },
-    "aufrÃ¤umen": {
+    "aufräumen": {
         "present": {
-            "ich": "rÃ¤ume auf",
-            "du": "rÃ¤umst auf",
-            "er": "rÃ¤umt auf",
-            "wir": "rÃ¤umen auf",
-            "ihr": "rÃ¤umt auf",
-            "sie": "rÃ¤umen auf"
+            "ich": "räume auf",
+            "du": "räumst auf",
+            "er": "räumt auf",
+            "wir": "räumen auf",
+            "ihr": "räumt auf",
+            "sie": "räumen auf"
         },
         "praet": {
-            "ich": "rÃ¤umte auf",
-            "du": "rÃ¤umtest auf",
-            "er": "rÃ¤umte auf",
-            "wir": "rÃ¤umten auf",
-            "ihr": "rÃ¤umtet auf",
-            "sie": "rÃ¤umten auf"
+            "ich": "räumte auf",
+            "du": "räumtest auf",
+            "er": "räumte auf",
+            "wir": "räumten auf",
+            "ihr": "räumtet auf",
+            "sie": "räumten auf"
         },
-        "part2": "aufgerÃ¤umt",
+        "part2": "aufgeräumt",
         "aux": "haben"
     },
     "aufregen": {
@@ -10419,44 +10419,44 @@ window.VERB_DB = {
         "part2": "ausgedruckt",
         "aux": "haben"
     },
-    "ausfÃ¼hren": {
+    "ausführen": {
         "present": {
-            "ich": "fÃ¼hre aus",
-            "du": "fÃ¼hrst aus",
-            "er": "fÃ¼hrt aus",
-            "wir": "fÃ¼hren aus",
-            "ihr": "fÃ¼hrt aus",
-            "sie": "fÃ¼hren aus"
+            "ich": "führe aus",
+            "du": "führst aus",
+            "er": "führt aus",
+            "wir": "führen aus",
+            "ihr": "führt aus",
+            "sie": "führen aus"
         },
         "praet": {
-            "ich": "fÃ¼hrte aus",
-            "du": "fÃ¼hrtest aus",
-            "er": "fÃ¼hrte aus",
-            "wir": "fÃ¼hrten aus",
-            "ihr": "fÃ¼hrtet aus",
-            "sie": "fÃ¼hrten aus"
+            "ich": "führte aus",
+            "du": "führtest aus",
+            "er": "führte aus",
+            "wir": "führten aus",
+            "ihr": "führtet aus",
+            "sie": "führten aus"
         },
-        "part2": "ausgefÃ¼hrt",
+        "part2": "ausgeführt",
         "aux": "haben"
     },
-    "ausfÃ¼llen": {
+    "ausfüllen": {
         "present": {
-            "ich": "fÃ¼lle aus",
-            "du": "fÃ¼llst aus",
-            "er": "fÃ¼llt aus",
-            "wir": "fÃ¼llen aus",
-            "ihr": "fÃ¼llt aus",
-            "sie": "fÃ¼llen aus"
+            "ich": "fülle aus",
+            "du": "füllst aus",
+            "er": "füllt aus",
+            "wir": "füllen aus",
+            "ihr": "füllt aus",
+            "sie": "füllen aus"
         },
         "praet": {
-            "ich": "fÃ¼llte aus",
-            "du": "fÃ¼lltest aus",
-            "er": "fÃ¼llte aus",
-            "wir": "fÃ¼llten aus",
-            "ihr": "fÃ¼lltet aus",
-            "sie": "fÃ¼llten aus"
+            "ich": "füllte aus",
+            "du": "fülltest aus",
+            "er": "füllte aus",
+            "wir": "füllten aus",
+            "ihr": "fülltet aus",
+            "sie": "füllten aus"
         },
-        "part2": "ausgefÃ¼llt",
+        "part2": "ausgefüllt",
         "aux": "haben"
     },
     "ausgehen": {
@@ -10482,8 +10482,8 @@ window.VERB_DB = {
     "aushalten": {
         "present": {
             "ich": "halte aus",
-            "du": "hÃ¤ltst aus",
-            "er": "hÃ¤lt aus",
+            "du": "hältst aus",
+            "er": "hält aus",
             "wir": "halten aus",
             "ihr": "haltet aus",
             "sie": "halten aus"
@@ -10799,24 +10799,24 @@ window.VERB_DB = {
         "part2": "ausgetausch",
         "aux": "haben"
     },
-    "ausÃ¼ben": {
+    "ausüben": {
         "present": {
-            "ich": "Ã¼be aus",
-            "du": "Ã¼bst aus",
-            "er": "Ã¼bt aus",
-            "wir": "Ã¼ben aus",
-            "ihr": "Ã¼bt aus",
-            "sie": "Ã¼ben aus"
+            "ich": "übe aus",
+            "du": "übst aus",
+            "er": "übt aus",
+            "wir": "üben aus",
+            "ihr": "übt aus",
+            "sie": "üben aus"
         },
         "praet": {
-            "ich": "Ã¼bte aus",
-            "du": "Ã¼btest aus",
-            "er": "Ã¼bte aus",
-            "wir": "Ã¼bten aus",
-            "ihr": "Ã¼btet aus",
-            "sie": "Ã¼bten aus"
+            "ich": "übte aus",
+            "du": "übtest aus",
+            "er": "übte aus",
+            "wir": "übten aus",
+            "ihr": "übtet aus",
+            "sie": "übten aus"
         },
-        "part2": "ausgeÃ¼bt",
+        "part2": "ausgeübt",
         "aux": "haben"
     },
     "ausweichen": {
@@ -10962,8 +10962,8 @@ window.VERB_DB = {
     "beantragen": {
         "present": {
             "ich": "beantrage",
-            "du": "beantrÃ¤gst",
-            "er": "beantrÃ¤gt",
+            "du": "beanträgst",
+            "er": "beanträgt",
             "wir": "beantragen",
             "ihr": "beantragt",
             "sie": "beantragen"
@@ -11079,24 +11079,24 @@ window.VERB_DB = {
         "part2": "beendet",
         "aux": "haben"
     },
-    "befÃ¶rdern": {
+    "befördern": {
         "present": {
-            "ich": "befÃ¶rdere",
-            "du": "befÃ¶rderst",
-            "er": "befÃ¶rdert",
-            "wir": "befÃ¶rdern",
-            "ihr": "befÃ¶rdert",
-            "sie": "befÃ¶rdern"
+            "ich": "befördere",
+            "du": "beförderst",
+            "er": "befördert",
+            "wir": "befördern",
+            "ihr": "befördert",
+            "sie": "befördern"
         },
         "praet": {
-            "ich": "befÃ¶rderte",
-            "du": "befÃ¶rdertest",
-            "er": "befÃ¶rderte",
-            "wir": "befÃ¶rderten",
-            "ihr": "befÃ¶rdertet",
-            "sie": "befÃ¶rderten"
+            "ich": "beförderte",
+            "du": "befördertest",
+            "er": "beförderte",
+            "wir": "beförderten",
+            "ihr": "befördertet",
+            "sie": "beförderten"
         },
-        "part2": "befÃ¶rdert",
+        "part2": "befördert",
         "aux": "haben"
     },
     "befreien": {
@@ -11119,24 +11119,24 @@ window.VERB_DB = {
         "part2": "befreit",
         "aux": "haben"
     },
-    "befÃ¼rchten": {
+    "befürchten": {
         "present": {
-            "ich": "befÃ¼rchte",
-            "du": "befÃ¼rchtest",
-            "er": "befÃ¼rchtet",
-            "wir": "befÃ¼rchten",
-            "ihr": "befÃ¼rchtet",
-            "sie": "befÃ¼rchten"
+            "ich": "befürchte",
+            "du": "befürchtest",
+            "er": "befürchtet",
+            "wir": "befürchten",
+            "ihr": "befürchtet",
+            "sie": "befürchten"
         },
         "praet": {
-            "ich": "befÃ¼rchtete",
-            "du": "befÃ¼rchtest",
-            "er": "befÃ¼rchtete",
-            "wir": "befÃ¼rchteten",
-            "ihr": "befÃ¼rchtetet",
-            "sie": "befÃ¼rchteten"
+            "ich": "befürchtete",
+            "du": "befürchtest",
+            "er": "befürchtete",
+            "wir": "befürchteten",
+            "ihr": "befürchtetet",
+            "sie": "befürchteten"
         },
-        "part2": "befÃ¼rchtet",
+        "part2": "befürchtet",
         "aux": "haben"
     },
     "begegnen": {
@@ -11242,8 +11242,8 @@ window.VERB_DB = {
     "behalten": {
         "present": {
             "ich": "behalte",
-            "du": "behÃ¤ltst",
-            "er": "behÃ¤lt",
+            "du": "behältst",
+            "er": "behält",
             "wir": "behalten",
             "ihr": "behaltet",
             "sie": "behalten"
@@ -11322,8 +11322,8 @@ window.VERB_DB = {
     "beitragen": {
         "present": {
             "ich": "trage bei",
-            "du": "trÃ¤gst bei",
-            "er": "trÃ¤gt bei",
+            "du": "trägst bei",
+            "er": "trägt bei",
             "wir": "tragen bei",
             "ihr": "tragt bei",
             "sie": "tragen bei"
@@ -22358,26 +22358,6 @@ window.VERB_DB = {
         "part2": "eingekauft",
         "aux": "haben"
     },
-    "aufräumen": {
-        "present": {
-            "ich": "räume auf",
-            "du": "räumst auf",
-            "er": "räumt auf",
-            "wir": "räumen auf",
-            "ihr": "räumt auf",
-            "sie": "räumen auf"
-        },
-        "praet": {
-            "ich": "räumte auf",
-            "du": "räumtest auf",
-            "er": "räumte auf",
-            "wir": "räumten auf",
-            "ihr": "räumtet auf",
-            "sie": "räumten auf"
-        },
-        "part2": "aufgeräumt",
-        "aux": "haben"
-    },
     "teilnehmen": {
         "present": {
             "ich": "nehme teil",
@@ -23798,26 +23778,6 @@ window.VERB_DB = {
         "part2": "zurückgebracht",
         "aux": "haben"
     },
-    "ausführen": {
-        "present": {
-            "ich": "führe aus",
-            "du": "führst aus",
-            "er": "führt aus",
-            "wir": "führen aus",
-            "ihr": "führt aus",
-            "sie": "führen aus"
-        },
-        "praet": {
-            "ich": "führte aus",
-            "du": "führtest aus",
-            "er": "führte aus",
-            "wir": "führten aus",
-            "ihr": "führtet aus",
-            "sie": "führten aus"
-        },
-        "part2": "ausgeführt",
-        "aux": "haben"
-    },
     "fortführen": {
         "present": {
             "ich": "führe fort",
@@ -24076,6 +24036,26 @@ window.VERB_DB = {
             "sie": "hatten vor"
         },
         "part2": "vorgehabt",
+        "aux": "haben"
+    },
+    "liefern": {
+        "present": {
+            "ich": "liefere",
+            "du": "lieferst",
+            "er": "liefert",
+            "wir": "liefern",
+            "ihr": "liefert",
+            "sie": "liefern"
+        },
+        "praet": {
+            "ich": "lieferte",
+            "du": "liefertest",
+            "er": "lieferte",
+            "wir": "lieferten",
+            "ihr": "liefertet",
+            "sie": "lieferten"
+        },
+        "part2": "geliefert",
         "aux": "haben"
     }
 };
