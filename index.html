@@ -33,6 +33,7 @@
     .writing-area { height: 250px; resize: none; }
     .section-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; display: block; }
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .form-group { display: flex; flex-direction: column; gap: 8px; }
     label { font-size: 12px; font-weight: 600; color: #86868b; text-transform: uppercase; letter-spacing: 0.02em; }
     hr { border: 0; border-top: 1px solid var(--border); margin: 24px 0; }
@@ -75,31 +76,40 @@
       <div class="subtitle">Học động từ tiếng Đức chuyên nghiệp.</div>
 
       <div class="card">
-        <div class="form-group">
-          <label>Infinitiv</label>
-          <input id="verb" placeholder="z. B. gehen, machen...">
+        <div style="display:grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; margin-bottom: 16px;">
+          <div class="form-group">
+            <label>Infinitiv</label>
+            <input id="verb" placeholder="z. B. gehen, machen...">
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="primary" onclick="verifyVerb()">Prüfen ✓</button>
+            <button class="secondary" onclick="clearVerb()">Leeren</button>
+          </div>
         </div>
-      </div>
 
-      <div class="card">
-        <span class="section-title">Präsens</span>
-        <div class="grid">
-          <div class="form-group"><label>ich</label><input id="c_p_ich"></div>
-          <div class="form-group"><label>du</label><input id="c_p_du"></div>
-          <div class="form-group"><label>er/sie/es</label><input id="c_p_er"></div>
-          <div class="form-group"><label>wir</label><input id="c_p_wir"></div>
-          <div class="form-group"><label>ihr</label><input id="c_p_ihr"></div>
-          <div class="form-group"><label>sie/Sie</label><input id="c_p_sie"></div>
-        </div>
-        <hr>
-        <span class="section-title">Perfekt</span>
-        <div class="grid">
-          <div class="form-group"><label>Hilfsverb</label><input id="c_aux" placeholder="haben / sein"></div>
-          <div class="form-group"><label>Partizip II</label><input id="c_part2"></div>
-        </div>
-        <div class="button-group">
-          <button class="primary" onclick="verifyVerb()">Prüfen ✓</button>
-          <button class="secondary" onclick="clearVerb()">Leeren</button>
+        <div style="display:grid; grid-template-columns: 1fr 1px 1fr; gap:20px; align-items:start;">
+          <!-- Präsens -->
+          <div>
+            <span class="section-title" style="font-size:15px; margin-bottom:10px;">Präsens</span>
+            <div class="grid-3">
+              <div class="form-group"><label>ich</label><input id="c_p_ich"></div>
+              <div class="form-group"><label>du</label><input id="c_p_du"></div>
+              <div class="form-group"><label>er/sie/es</label><input id="c_p_er"></div>
+              <div class="form-group"><label>wir</label><input id="c_p_wir"></div>
+              <div class="form-group"><label>ihr</label><input id="c_p_ihr"></div>
+              <div class="form-group"><label>sie/Sie</label><input id="c_p_sie"></div>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div style="background: var(--border); height: 100%;"></div>
+          <!-- Perfekt -->
+          <div>
+            <span class="section-title" style="font-size:15px; margin-bottom:10px;">Perfekt</span>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div class="form-group"><label>Hilfsverb</label><input id="c_aux" placeholder="haben / sein"></div>
+              <div class="form-group"><label>Partizip II</label><input id="c_part2"></div>
+            </div>
+          </div>
         </div>
       </div>
 
