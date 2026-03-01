@@ -83,6 +83,7 @@
           </div>
           <div style="display:flex; gap:8px;">
             <button class="primary" onclick="verifyVerb()">Prüfen ✓</button>
+            <button class="secondary" onclick="showAnswer()">Lösung 👁</button>
             <button class="secondary" onclick="clearVerb()">Leeren</button>
           </div>
         </div>
@@ -229,13 +230,26 @@
         const norm = s => (s||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ß/g,"ss");
         const render = (lab, user, cor) => {
           const ok = norm(user) === norm(cor);
-          return `<div class="result-line ${ok?'ok':'bad'}"><b>${lab}:</b> ${user||"(leer)"} ${!ok?`<br><small>Richtig: <span class="ok">${cor}</span></small>`:''}`;
+          return `<div class="result-line ${ok?'ok':'bad'}" style="margin:4px 0; border-radius:8px;"><b>${lab}:</b> ${user||"(leer)"}${!ok ? ` <span style="color:#86868b">→</span> <span class="ok">${cor}</span>` : ' ✓'}</div>`;
         };
 
-        let html = `<div style="font-weight:600; margin-bottom:10px;">${verbKey}</div>`;
+        let html = `<div style="font-weight:600; margin-bottom:12px; font-size:17px;">${verbKey}</div>`;
+        html += `<div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">`;
         ["ich","du","er","wir","ihr","sie"].forEach(p => html += render(p, $('c_p_'+p).value, data.present[p]));
-        html += "<hr>" + render("Hilfsverb", $('c_aux').value, data.aux) + render("Partizip II", $('c_part2').value, data.part2);
+        html += `</div><hr style="margin:12px 0"><div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">`;
+        html += render("Hilfsverb", $('c_aux').value, data.aux) + render("Partizip II", $('c_part2').value, data.part2);
+        html += `</div>`;
         $('result').innerHTML = html;
+    }
+
+    function showAnswer() {
+        if (window.VERB_DB) DB = window.VERB_DB;
+        const verbKey = $('verb').value.trim().toLowerCase();
+        const data = DB[verbKey];
+        if (!data) return alert("Nhập động từ trước!");
+        ["ich","du","er","wir","ihr","sie"].forEach(p => $('c_p_'+p).value = data.present[p]);
+        $('c_aux').value = data.aux;
+        $('c_part2').value = data.part2;
     }
 
     function clearVerb() {
