@@ -24,24 +24,14 @@
     h1 { font-size: 40px; font-weight: 700; margin: 0 0 10px; color: #1d1d1f; text-align: center; }
     .subtitle { font-size: 17px; color: #6e6e73; text-align: center; margin-bottom: 40px; }
     .card { background: var(--card-bg); border-radius: 20px; padding: 30px; margin: 24px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    label { font-size: 12px; font-weight: 600; color: #86868b; text-transform: uppercase; letter-spacing: 0.02em; }
-    input, select, textarea { padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); font-size: 16px; background: #fbfbfd; transition: border-color 0.2s; width: 100%; box-sizing: border-box; }
-    input:focus, textarea:focus { outline: none; border-color: #0066cc; }
-    .button-group { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
-    button.primary { background: #0071e3; color: #fff; padding: 12px 24px; border-radius: 980px; border: none; font-weight: 500; font-size: 17px; cursor: pointer; }
-    button.secondary { background: transparent; color: #0066cc; font-size: 17px; cursor: pointer; border: none; padding: 8px 16px; }
+    input, select, textarea { padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); font-size: 16px; background: #fbfbfd; width: 100%; box-sizing: border-box; }
+    .button-group { display: flex; gap: 12px; margin-top: 24px; justify-content: center; }
+    button.primary { background: #0071e3; color: #fff; padding: 12px 24px; border-radius: 980px; border: none; font-weight: 500; cursor: pointer; }
+    button.secondary { background: transparent; color: #0066cc; border: none; cursor: pointer; }
     .page-section { display: none; }
     .page-section.active { display: block; }
-    .writing-area { height: 300px; resize: none; margin-top: 10px; }
-    .result-line { padding: 12px; border-radius: 10px; margin: 8px 0; background: #fbfbfd; border: 1px solid #f0f0f5; }
-    .result-line.ok { border-left: 4px solid var(--ok); }
-    .result-line.bad { border-left: 4px solid var(--bad); }
-    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; color: #1d1d1f; display: block; }
-    .hint { font-size: 13px; color: #86868b; margin-top: 8px; }
-    .ok { color: var(--ok); }
-    .bad { color: var(--bad); }
+    .writing-area { height: 250px; resize: none; }
+    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; display: block; }
   </style>
 </head>
 <body>
@@ -56,45 +46,36 @@
   <div class="main-container">
     <div id="verb-page" class="page-section active">
       <h1>Deutsch Verb Master</h1>
-      <div class="subtitle">Học động từ tiếng Đức phong cách chuyên nghiệp.</div>
       <div class="card">
         <label>Infinitiv</label>
-        <input id="verb" placeholder="Ví dụ: gehen, machen...">
+        <input id="verb" placeholder="z. B. gehen...">
       </div>
-      <div id="result" class="card" style="min-height: 50px;">Kết quả sẽ hiện ở đây.</div>
+      <div id="result" class="card">Kết quả...</div>
     </div>
 
     <div id="grammar-page" class="page-section">
       <h1>Grammatik</h1>
-      <div class="card">Nội dung ngữ pháp đang cập nhật...</div>
+      <div class="card">Đang cập nhật...</div>
     </div>
 
     <div id="writing-page" class="page-section">
       <h1>Writing (Gemini AI)</h1>
-      <div class="subtitle">Viết bài tiếng Đức và AI sẽ sửa lỗi cho bạn.</div>
+      <textarea class="writing-area" id="w-text" placeholder="Viết bài tiếng Đức ở đây..."></textarea>
       
-      <div style="margin-bottom: 20px; display: flex; gap: 10px;">
-        <select id="writing-level"><option>A1</option><option>A2</option><option selected>B1</option><option>B2</option></select>
-        <select id="writing-topic"><option>E-Mail</option><option>Bewerbung</option><option>Meinung</option></select>
-      </div>
-
-      <textarea class="writing-area" placeholder="Viết bài tại đây..."></textarea>
-      
-      <div class="button-group" style="justify-content: center;">
-        <button class="primary" onclick="correctWithGemini()">Sửa bài bằng Gemini AI</button>
+      <div class="button-group">
+        <button class="primary" onclick="correctText()">Sửa bài trực tiếp</button>
         <button class="secondary" onclick="saveText()">Lưu bài</button>
       </div>
 
-      <div id="ai-result" class="card" style="display:none; border-left: 5px solid #0071e3; background: #f0f7ff;">
-        <span class="section-title">Kết quả từ Gemini</span>
+      <div id="ai-result" class="card" style="display:none; background: #f0f7ff;">
+        <span class="section-title">AI Feedback</span>
         <div id="ai-loading" style="display:none;">Đang xử lý...</div>
         <div id="ai-content" style="white-space: pre-wrap;"></div>
       </div>
 
-      <div class="card" style="background: #fff9db; border: 1px dashed #fcc419;">
+      <div class="card" style="background: #fff9db;">
         <label>🔐 Gemini API Key</label>
-        <input type="password" id="gemini-key" placeholder="Nhập API Key từ Google AI Studio">
-        <div class="hint">Lấy key tại: <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></div>
+        <input type="password" id="gemini-key" placeholder="Dán mã AIza... tại đây">
       </div>
 
       <div id="saved-list" style="margin-top: 20px;"></div>
@@ -111,55 +92,34 @@
       event.target.classList.add('active');
     }
 
-    async function correctWithGemini() {
+    async function correctText() {
       const key = $('gemini-key').value.trim();
-      const text = document.querySelector('.writing-area').value;
-      
-      if (!text) return alert("Vui lòng nhập bài viết!");
-      if (!key) return alert("Vui lòng nhập API Key!");
+      const text = $('w-text').value.trim();
+      if (!key || !text) return alert("Thiếu Key hoặc nội dung!");
 
       $('ai-result').style.display = 'block';
       $('ai-loading').style.display = 'block';
       $('ai-content').innerText = '';
       localStorage.setItem('gemini_api_key', key);
 
-      const prompt = `Du bist ein Deutschlehrer. Bitte korrigiere diesen Text auf Deutsch und erkläre die Fehler auf Vietnamesisch:\n\n"${text}"`;
-
       try {
-        console.log("Calling Gemini API...");
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`, {
-          body: JSON.stringify({ 
-            contents: [{ parts: [{ text: prompt }] }] 
-          })
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: "Hãy sửa bài viết tiếng Đức sau và giải thích bằng tiếng Việt:\n\n" + text }] }] })
         });
-
-        if (!res.ok) {
-           const errData = await res.json();
-           throw new Error(errData.error?.message || "Lỗi mạng hoặc API Key không hợp lệ.");
-        }
-
         const data = await res.json();
-        console.log("API Success:", data);
-
-        if (data.candidates && data.candidates[0].content.parts[0].text) {
-          $('ai-content').innerText = data.candidates[0].content.parts[0].text;
-        } else {
-          throw new Error("API không trả về kết quả hợp lệ.");
-        }
+        if (data.error) throw new Error(data.error.message);
+        $('ai-content').innerText = data.candidates[0].content.parts[0].text;
       } catch (e) {
-        console.error("Gemini Error:", e);
-        if (e.message.includes("Failed to fetch")) {
-           $('ai-content').innerText = "Lỗi: Không thể kết nối tới Google API. Vui lòng kiểm tra:\n1. Kết nối mạng (hoặc VPN nếu mạng chặn).\n2. API Key có đúng không.";
-        } else {
-           $('ai-content').innerText = "Lỗi: " + e.message;
-        }
+        $('ai-content').innerText = "Lỗi: " + e.message;
       } finally {
         $('ai-loading').style.display = 'none';
       }
     }
 
     function saveText() {
-      const text = document.querySelector('.writing-area').value;
+      const text = $('w-text').value;
       if (!text) return;
       const list = JSON.parse(localStorage.getItem('german_writings') || '[]');
       list.unshift({ text, date: new Date().toLocaleString() });
@@ -174,8 +134,7 @@
 
     window.onload = () => {
       renderSaved();
-      const savedKey = localStorage.getItem('gemini_api_key');
-      if (savedKey) $('gemini-key').value = savedKey;
+      if (localStorage.getItem('gemini_api_key')) $('gemini-key').value = localStorage.getItem('gemini_api_key');
     };
   </script>
 </body>
