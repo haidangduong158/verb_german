@@ -139,9 +139,24 @@
       $('ai-content').innerText = '';
       localStorage.setItem('gemini_api_key', key);
 
-      // SỬA LỖI MODEL & PHIÊN BẢN: Chuyển hoàn toàn sang bản ổn định V1
+      // Tự động lấy model khả dụng rồi gọi API
       try {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`, {
+        // Bước 1: Lấy danh sách model đang hoạt động
+        const modelRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
+        const modelData = await modelRes.json();
+        if (modelData.error) throw new Error(modelData.error.message);
+
+        // Bước 2: Chọn model gemini hỗ trợ generateContent
+        const model = modelData.models.find(m =>
+          m.name.includes('gemini') &&
+          m.supportedGenerationMethods &&
+          m.supportedGenerationMethods.includes('generateContent')
+        );
+        if (!model) throw new Error("Không tìm thấy model Gemini nào khả dụng!");
+        const modelId = model.name.replace('models/', '');
+
+        // Bước 3: Gọi API với model tìm được
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${key}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: "Hãy sửa bài viết tiếng Đức sau và giải thích bằng tiếng Việt:\n\n" + text }] }] })
