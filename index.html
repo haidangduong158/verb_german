@@ -378,8 +378,15 @@ $('aiCorrectBtn').onclick = async () => {
       })
     });
     const data = await res.json();
-    $('ai-content').innerText = data.choices[0].message.content;
-  } catch (err) { $('ai-content').innerText = "Lỗi: " + err.message; }
+    
+    if (data.error) {
+      $('ai-content').innerText = "Lỗi từ OpenAI: " + data.error.message;
+    } else if (data.choices && data.choices.length > 0) {
+      $('ai-content').innerText = data.choices[0].message.content;
+    } else {
+      $('ai-content').innerText = "Lỗi không xác định: " + JSON.stringify(data);
+    }
+  } catch (err) { $('ai-content').innerText = "Lỗi kết nối: " + err.message; }
   $('ai-loading').style.display = 'none';
 };
 
